@@ -1,9 +1,10 @@
 """
-SSZ Metric Pure - 100% Segmented Spacetime Implementation
+SSZ Metric Pure - 100% Pure Segmented Spacetime
 
 Unified from:
-- ssz-full-metric (E:\clone\ssz-full-metric) - Code implementation
-- ssz-metric-final (E:\ssz-full-metric-reports) - Final discoveries
+- ssz-full-metric: Production-ready code
+- ssz-metric-final: Pure SSZ discoveries, φ-series
+- Segmented-Spacetime-Results: ESO validated Δ(M), test framework
 
 KEY BREAKTHROUGHS (from 28-hour session):
 ==========================================
@@ -45,28 +46,32 @@ Paradoxes Solved:
 Licensed under the Anti-Capitalist Software License v1.4
 """
 
-__version__ = "1.0.0"
+__version__ = "0.1.0"
 __author__ = "Carmen Wrede, Lino Casu"
-__license__ = "Anti-Capitalist v1.4"
-__status__ = "Production"
+__license__ = "ANTI-CAPITALIST SOFTWARE LICENSE v1.4"
+__status__ = "Alpha"
 
-# Import unified parameters
+# Core parameters
 from .params import (
-    # Constants
-    PHI, G_SI, C_SI, M_SUN,
+    # Physical constants
+    G_SI, C_SI, HBAR, K_B, M_SUN,
+    PHI, PHI_PRECISE,
     
-    # φ-Series coefficients (BREAKTHROUGH!)
+    # φ-Series (BREAKTHROUGH!)
     PHI_SERIES_COEFFICIENTS,
+    EPSILON_COEFFICIENTS,
+    U_STAR_UNIVERSAL,
     
-    # Universal constants
-    U_STAR_UNIVERSAL,  # 1.3865616 (mass-independent!)
+    # SSZ constants
+    R_PHI_RATIO, A_MIN, XI_MAX,
+    DELTA_M_A, DELTA_M_ALPHA, DELTA_M_B,
     
     # Parameter classes
     SSZParams,
     KerrSSZParams,
     DimensionlessMode,
     
-    # Quick functions
+    # Convenience functions
     schwarzschild_radius,
     golden_radius,
     validate_spin,
