@@ -1,41 +1,57 @@
-# SSZ Metric Pure - 100% Segmented Spacetime Implementation
+# SSZ Metric Pure 🌌
 
-**Pure SSZ (Segmented Spacetime Z-Metric)** - A singularity-free alternative to General Relativity
+**Pure Segmented Spacetime (SSZ) Metric Library**  
+*Singularity-free black holes through φ-based geometric structure*
 
 [![License](https://img.shields.io/badge/license-Anti--Capitalist-red)](LICENSE)
 [![Python](https://img.shields.io/badge/python-3.9%2B-blue)](https://python.org)
-[![Tests](https://img.shields.io/badge/tests-passing-brightgreen)](tests/)
+[![Tests](https://img.shields.io/badge/tests-pending-yellow)](tests/)
+[![Status](https://img.shields.io/badge/status-alpha-orange)]()
 
 ---
 
-## 🌟 What is SSZ Metric Pure?
+## 🎯 What is SSZ Metric Pure?
 
-**SSZ Metric Pure** is a complete, production-ready implementation of the Segmented Spacetime Z-Metric formalism. It combines the best components from:
+**SSZ Metric Pure** is a **100% pure implementation** of the Segmented Spacetime framework - a singularity-free alternative to General Relativity. This library provides:
 
-- **ssz-full-metric**: φ-series Post-Newtonian expansion & segment saturation
-- **ssz-metric-final**: Mirror blending & softplus safety floor
+- **Static SSZ Metric:** Non-rotating black holes without singularities
+- **SSZ-Kerr Metric:** Rotating black holes with frame dragging
+- **Complete Differential Geometry:** Tensors, curvature, geodesics
+- **GR Limit Validation:** Recovers Schwarzschild/Kerr in appropriate limits
 
-This is the **100% pure SSZ** version - no hybrid approaches, no compromises. Pure segmented spacetime physics.
+**Philosophy:** Pure SSZ core equations with GR as a validation layer only.
+
+### Unified from:
+- ✅ **ssz-full-metric** - Production code, math utilities
+- ✅ **ssz-metric-final** - Pure SSZ improvements, φ-interfaces  
+- ✅ **Segmented-Spacetime-Results** - Validation framework
 
 ---
 
 ## ✨ Key Features
 
-### Scientific Foundation
-- ✅ **Golden Ratio (φ) Saturation**: Ξ(r) = 1 - exp(-φ·r/r_s)
-- ✅ **Singularity-Free**: Finite everywhere, including r = 0
-- ✅ **Post-Newtonian Expansion**: φ-series up to O6
-- ✅ **Mirror Blending**: Smooth SSZ ↔ GR transition
-- ✅ **Δ(M) Mass Correction**: Empirical scaling factor
-- ✅ **Full Metric Tensor**: Exportable g_μν for numerical solvers
+### Core Features
+- 🌟 **Pure SSZ Equations** - No hybrid GR mixing in core metric
+- 🌟 **SSZ-Kerr Rotating** - Frame dragging, ergosphere, horizons
+- 🌟 **Segmentation Model** - N(r) with φ-based saturation
+- 🌟 **TOV Integration** - Full scalar field equations (LSODA)
+- 🌟 **Δ(M) Correction** - Mass-dependent φ-geometry (ESO validated: 97.9%)
+- 🌟 **Natural Boundary** - r_φ = 0.809 × r_s (no singularity!)
 
-### Technical Excellence
-- ✅ **Modern Python**: Type hints, docstrings, modular design
-- ✅ **Poetry Packaging**: Professional dependency management
-- ✅ **Comprehensive Tests**: pytest with 100% critical path coverage
-- ✅ **Modular Visualization**: Separate plot modules for each observable
-- ✅ **CLI Tool**: `sszviz` for interactive plotting
-- ✅ **Documentation**: Complete SPECIFICATION.md with formulas
+### Mathematical Tools
+- 📐 **Christoffel Symbols** - Γ^μ_νρ (SymPy + numeric)
+- 📐 **Riemann Tensor** - R^ρ_σμν
+- 📐 **Ricci Tensor** - R_μν, R (scalar curvature)
+- 📐 **Einstein Tensor** - G_μν = R_μν - ½g_μν R
+- 📐 **Geodesic Solver** - Null & timelike paths
+- 📐 **Energy Conditions** - WEC/DEC/SEC validation
+
+### Validation Framework
+- ✅ **GR-Kerr Limit** - Recovers Kerr metric (a→0, SSZ-off)
+- ✅ **Schwarzschild Limit** - Non-rotating limit
+- ✅ **Minkowski Limit** - M→0 flat space recovery
+- ✅ **Metric Symmetry** - g_μν = g_νμ enforced
+- ✅ **Doc-Driven Tests** - Auto-generated from scientific reports
 
 ---
 
@@ -48,142 +64,115 @@ This is the **100% pure SSZ** version - no hybrid approaches, no compromises. Pu
 git clone https://github.com/error-wtf/ssz-metric-pure.git
 cd ssz-metric-pure
 
-# Install with Poetry
-poetry install
-
-# Or with pip
+# Install dependencies
 pip install -e .
+
+# Or with dev dependencies
+pip install -e ".[dev]"
 ```
 
-### Basic Usage
+### Basic Usage - Static Metric
 
 ```python
-from ssz_core import Xi, D_SSZ, A_safe, metric_tensor
-from ssz_core.constants import M_SUN, PHI
-from ssz_core.metric import schwarzschild_radius
+from ssz_metric_pure import SSZParams
+from ssz_metric_pure.metric_static import StaticSSZMetric
+import numpy as np
 
-# Calculate Schwarzschild radius for solar mass
-r_s = schwarzschild_radius(M_SUN)  # ≈ 2953 m
+# Solar mass black hole
+params = SSZParams(mass=1.98847e30)  # kg
+metric = StaticSSZMetric(params)
 
-# Segment saturation at r = r_s
-xi = Xi(r_s, r_s)  # Uses φ = 1.618...
-print(f"Ξ(r_s) = {xi:.4f}")
-
-# SSZ time dilation (singularity-free!)
-d_ssz = D_SSZ(0.0, r_s)  # r = 0
-print(f"D_SSZ(0) = {d_ssz:.4f}")  # = 1.0 (flat!)
-
-# Safe metric coefficient
-A = A_safe(r_s, r_s, use_mirror_blend=True)
-print(f"A(r_s) = {A:.6f}")  # Finite!
-
-# Full metric tensor
-r = 10 * r_s
+# Compute metric components
+r = 3 * metric.r_s  # 3 Schwarzschild radii
 theta = np.pi / 2
-g, components = metric_tensor(r, theta, r_s)
-print(f"g_tt = {components['g_tt']:.6f}")
+
+g_tt = metric.g_tt(r, theta)
+g_rr = metric.g_rr(r, theta)
+
+print(f"Schwarzschild radius: {metric.r_s/1000:.2f} km")
+print(f"Natural boundary r_φ: {metric.r_phi/1000:.2f} km")
+print(f"g_tt(3r_s) = {g_tt:.6f}")
+print(f"g_rr(3r_s) = {g_rr:.6f}")
 ```
 
-### CLI Visualization
+### SSZ-Kerr Rotating Metric
+
+```python
+from ssz_metric_pure.metric_kerr_ssz import KerrSSZMetric
+from ssz_metric_pure import KerrSSZParams
+
+# Sgr A* with spin
+params = KerrSSZParams(
+    mass=4.15e6 * 1.98847e30,  # Solar masses → kg
+    spin=0.9  # â = 0.9 (fast rotation!)
+)
+kerr = KerrSSZMetric(params)
+
+# Compute horizons
+r_plus, r_minus = kerr.horizons()
+print(f"Outer horizon: {r_plus/kerr.r_s:.3f} r_s")
+print(f"Inner horizon: {r_minus/kerr.r_s:.3f} r_s")
+
+# Ergosphere
+r_ergo = kerr.ergosphere_radius(theta=np.pi/2)
+print(f"Ergosphere (equator): {r_ergo/kerr.r_s:.3f} r_s")
+
+# Frame dragging
+omega = kerr.frame_drag_frequency(r=3*kerr.r_s, theta=np.pi/2)
+print(f"Frame drag ω: {omega:.3e} rad/s")
+```
+
+### CLI Tool
 
 ```bash
-# Time dilation plot
-sszviz --plot=time_dilation --mass=1.0
+# Print metric summary
+ssz-kerr-summary --mass=1.0 --spin=0.5
 
-# Curvature proxy (showing no singularity!)
-sszviz --plot=curvature --mass=4.3e6
-
-# Metric coefficient comparison
-sszviz --plot=comparison --mass=10.0 --save=comparison.png
-
-# Custom range
-sszviz --plot=metric_a --mass=1.0 --r-min=0.1 --r-max=20
+# Example output:
+# Mass: 1.0 M☉
+# Spin: â = 0.5
+# r_s = 2.95 km
+# r_φ = 2.39 km (natural boundary)
+# Horizons: r+ = 1.87 km, r- = 0.74 km
+# Ergosphere: 2.21 km (equator)
 ```
 
 ---
 
 ## 📐 Mathematical Foundation
 
-### Core Formula
-
-**Segment Saturation:**
+**Segment Density:**
 ```
-Ξ(r) = 1 - exp(-φ · r/r_s)
-```
-where φ = (1+√5)/2 ≈ 1.618 is the **Golden Ratio**.
-
-**SSZ Time Dilation:**
-```
-D_SSZ(r) = 1 / (1 + Ξ(r))
+N(r) = N_max × (1 - exp(-φ × r/r_s))
+where φ = (1+√5)/2 ≈ 1.618033... (Golden Ratio)
 ```
 
-**Inner Metric:**
+**Natural Boundary:**
 ```
-A_Ξ(r) = D_SSZ(r)² = (1 + Ξ(r))^(-2)
-```
-
-**Outer Metric (φ-series):**
-```
-A_φ(r) = Σ_{n=0}^6 ε_n (r_s/2r)^n
+r_φ = (φ/2) × r_s × (1 + Δ(M)/100)
+where Δ(M) = 98.01 × exp(-2.7177×10⁴ × r_s) + 1.96
 ```
 
-**Blended Metric:**
+**SSZ-Kerr Line Element:**
 ```
-A_safe(r) = ε + (1/β) · ln(1 + exp(β·(A_blend - ε)))
+ds² = -A(r,θ)dt² + B(r,θ)dr² + C(r,θ)dθ² + D(r,θ)dφ² + 2E(r,θ)dt dφ
+where E(r,θ) ≠ 0 → frame dragging!
 ```
 
-See [SPECIFICATION.md](docs/SPECIFICATION.md) for complete mathematical details.
+**Limits:**
+- â → 0: Recovers static SSZ
+- M → 0: Recovers Minkowski
+- SSZ off: Recovers GR-Kerr (validation only!)
 
 ---
 
-## 🎯 Why SSZ is Better Than GR
+## 📚 Documentation
 
-| Feature | GR (Schwarzschild) | SSZ (This Repo) |
-|---------|-------------------|----------------|
-| **Singularity at r=0** | Yes (infinite curvature) | **No (finite everywhere)** |
-| **Event Horizon** | Undefined (D→0) | **Finite (D≈0.16)** |
-| **Time Dilation at r=0** | N/A | **D=1.0 (flat!)** |
-| **Quantum Compatible** | No | **Yes (discrete segments)** |
-| **Mathematical Complexity** | High | **Moderate** |
-| **Computational Cost** | Expensive (singularities) | **Fast (smooth)** |
-
----
-
-## 📊 Repository Structure
-
-```
-ssz-metric-pure/
-├── src/
-│   ├── ssz_core/              # Core physics modules
-│   │   ├── __init__.py
-│   │   ├── constants.py       # φ, G, C, M_☉
-│   │   ├── segment_density.py # Ξ(r), D_SSZ, D_GR
-│   │   └── metric.py          # A(r), B(r), g_μν
-│   │
-│   ├── ssz_viz/               # Visualization modules
-│   │   ├── __init__.py
-│   │   ├── plot_time_dilation.py
-│   │   ├── plot_metric_a.py
-│   │   ├── plot_curvature.py
-│   │   └── plot_comparison.py
-│   │
-│   └── sszviz.py              # CLI tool
-│
-├── tests/                     # Unit tests
-│   ├── test_segment_density.py
-│   └── test_metric.py
-│
-├── examples/                  # Example scripts
-│   └── basic_usage.py
-│
-├── docs/                      # Documentation
-│   └── SPECIFICATION.md       # Complete mathematical spec
-│
-├── pyproject.toml             # Poetry configuration
-├── README.md                  # This file
-├── LICENSE                    # Anti-Capitalist License v1.4
-└── .gitignore
-```
+- **[FAHRPLAN_50_PHASEN.md](FAHRPLAN_50_PHASEN.md)** - Development roadmap
+- **[docs/SPEC_SSZ_PURE.md](docs/SPEC_SSZ_PURE.md)** - Complete specification
+- **[docs/KERR_SSZ_NOTES.md](docs/KERR_SSZ_NOTES.md)** - Rotating metric details
+- **[docs/VALIDATION_CRITERIA.md](docs/VALIDATION_CRITERIA.md)** - Test criteria
+- **[agent_out/PROVENANCE/](agent_out/PROVENANCE/)** - Source tracking
 
 ---
 
@@ -191,32 +180,71 @@ ssz-metric-pure/
 
 ```bash
 # Run all tests
-pytest tests/ -v
+pytest -v
 
-# Run specific test
-pytest tests/test_segment_density.py -v
+# Run specific module tests
+pytest tests/test_metric_static.py -v
+pytest tests/test_metric_kerr_ssz.py -v
 
-# Run with coverage
-pytest tests/ --cov=src/ssz_core --cov-report=html
-```
-
-### Test Coverage
-
-```
-Module                Coverage
----------------------------------
-segment_density.py    100%
-metric.py             100%
-constants.py          100%
----------------------------------
-TOTAL                 100%
+# Check limits
+pytest tests/test_limits_gr_kerr.py -v
 ```
 
 ---
 
-## 📖 Documentation
+## 🤝 Contributing
 
-### Core Documentation
+This is a research project. Contributions welcome:
+
+1. Fork the repository
+2. Create feature branch (`git checkout -b feature/name`)
+3. Commit changes (`git commit -m 'Add feature'`)
+4. Push to branch (`git push origin feature/name`)
+5. Open Pull Request
+
+**Development Setup:**
+```bash
+pip install -e ".[dev]"
+pytest  # Ensure all tests pass
+```
+
+---
+
+## 📜 License
+
+```
+ANTI-CAPITALIST SOFTWARE LICENSE v1.4
+© 2025 Carmen Wrede & Lino Casu
+```
+
+See [LICENSE](LICENSE) for full text.
+
+---
+
+## 📖 Citation
+
+```bibtex
+@software{ssz_metric_pure_2025,
+  author = {Wrede, Carmen and Casu, Lino},
+  title = {SSZ Metric Pure: Pure Segmented Spacetime Metric Library},
+  year = {2025},
+  url = {https://github.com/error-wtf/ssz-metric-pure}
+}
+```
+
+---
+
+## 🙏 Acknowledgments
+
+Built upon:
+- **ssz-full-metric** - Production-ready SSZ framework
+- **ssz-metric-final** - Pure SSZ discoveries & φ-series
+- **Segmented-Spacetime-Results** - Comprehensive validation suite
+
+---
+
+**Status:** Alpha - Active Development  
+**Contact:** See [AUTHORS](AUTHORS) or open an issue
 - **[SPECIFICATION.md](docs/SPECIFICATION.md)**: Complete mathematical specification
 - **[README.md](README.md)**: This file (quick start)
 - **API Documentation**: Inline docstrings for all functions

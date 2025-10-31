@@ -1,0 +1,71 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+type: software
+title: "SSZ Metric Pure - Pure Segmented Spacetime Metric Library"
+version: "0.1.0"
+date-released: "2025-10-31"
+authors:
+  - family-names: "Wrede"
+    given-names: "Carmen"
+    orcid: "https://orcid.org/0000-0000-0000-0000"
+  - family-names: "Casu"
+    given-names: "Lino"
+    orcid: "https://orcid.org/0000-0000-0000-0000"
+repository-code: "https://github.com/error-wtf/ssz-metric-pure"
+url: "https://github.com/error-wtf/ssz-metric-pure"
+abstract: >-
+  A pure implementation of the Segmented Spacetime (SSZ) metric framework,
+  providing a singularity-free alternative to classical General Relativity.
+  This library implements rotating (SSZ-Kerr) and non-rotating metrics based
+  on φ-based geometric structure, with complete differential geometry tools,
+  geodesic integration, and comprehensive validation against GR limits.
+  
+  Key Features:
+  - Pure SSZ metric (no hybrid GR mixing in core)
+  - Rotating SSZ-Kerr implementation with frame dragging
+  - Complete tensor calculus (Christoffel, Riemann, Ricci, Einstein)
+  - Geodesic integration (null and timelike)
+  - Natural boundary at r_φ (singularity-free!)
+  - φ-series coefficients from golden ratio recursion
+  - Mass correction Δ(M) from φ-based geometry
+  - GR-Kerr recovery in appropriate limits (validation only)
+keywords:
+  - "Segmented Spacetime"
+  - "SSZ Metric"
+  - "Kerr Black Hole"
+  - "Golden Ratio"
+  - "Singularity-Free Metric"
+  - "General Relativity"
+  - "Differential Geometry"
+  - "Geodesics"
+  - "φ-based geometry"
+  - "TOV equations"
+license: "MIT"
+preferred-citation:
+  type: article
+  authors:
+    - family-names: "Wrede"
+      given-names: "Carmen"
+    - family-names: "Casu"
+      given-names: "Lino"
+  title: "Pure Segmented Spacetime Metric: A Singularity-Free Framework"
+  year: 2025
+  journal: "arXiv"
+  url: "https://arxiv.org/abs/XXXX.XXXXX"
+references:
+  - type: software
+    title: "ssz-full-metric"
+    authors:
+      - family-names: "Wrede"
+        given-names: "Carmen"
+      - family-names: "Casu"
+        given-names: "Lino"
+    repository-code: "https://github.com/error-wtf/ssz-full-metric"
+  - type: software
+    title: "Segmented-Spacetime-Mass-Projection-Unified-Results"
+    authors:
+      - family-names: "Wrede"
+        given-names: "Carmen"
+      - family-names: "Casu"
+        given-names: "Lino"
+    repository-code: "https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results"

@@ -1,37 +1,60 @@
-[tool.poetry]
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
 name = "ssz-metric-pure"
-version = "1.0.0"
-description = "100% Pure SSZ (Segmented Spacetime Z-Metric) Implementation"
-authors = ["Carmen Wrede", "Lino Casu"]
-license = "Anti-Capitalist Software License v1.4"
+version = "0.1.0"
+description = "Pure Segmented Spacetime (SSZ) metric library - 100% pure implementation"
 readme = "README.md"
-homepage = "https://github.com/error-wtf/ssz-metric-pure"
-repository = "https://github.com/error-wtf/ssz-metric-pure"
-keywords = ["physics", "relativity", "black-holes", "spacetime", "golden-ratio"]
+requires-python = ">=3.9"
+license = {text = "ANTI-CAPITALIST SOFTWARE LICENSE v1.4"}
+authors = [
+    {name = "Carmen Wrede"},
+    {name = "Lino Casu"}
+]
+keywords = ["physics", "relativity", "black-holes", "spacetime", "golden-ratio", "ssz", "kerr", "geodesics"]
 classifiers = [
-    "Development Status :: 5 - Production/Stable",
+    "Development Status :: 3 - Alpha",
     "Intended Audience :: Science/Research",
     "Topic :: Scientific/Engineering :: Physics",
     "Topic :: Scientific/Engineering :: Astronomy",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+]
+dependencies = [
+    "numpy>=1.24.0",
+    "scipy>=1.11.0",
+    "sympy>=1.12",
 ]
 
-[tool.poetry.dependencies]
-python = "^3.9"
-numpy = "^1.24.0"
-scipy = "^1.11.0"
-matplotlib = "^3.7.0"
-imageio = "^2.31.0"
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "pytest-cov>=4.1.0",
+    "black>=23.7.0",
+    "mypy>=1.5.0",
+    "flake8>=6.1.0",
+    "isort>=5.12.0",
+]
+viz = [
+    "matplotlib>=3.7.0",
+]
 
-[tool.poetry.group.dev.dependencies]
-pytest = "^7.4.0"
-pytest-cov = "^4.1.0"
-black = "^23.7.0"
-mypy = "^1.5.0"
-flake8 = "^6.1.0"
-isort = "^5.12.0"
+[project.urls]
+Homepage = "https://github.com/error-wtf/ssz-metric-pure"
+Repository = "https://github.com/error-wtf/ssz-metric-pure"
+Documentation = "https://github.com/error-wtf/ssz-metric-pure/blob/main/docs"
+"Bug Tracker" = "https://github.com/error-wtf/ssz-metric-pure/issues"
 
-[tool.poetry.scripts]
-sszviz = "ssz_viz.sszviz:main"
+[project.scripts]
+ssz-kerr-summary = "ssz_metric_pure.cli:main"
+
+[tool.setuptools]
+packages = ["ssz_metric_pure"]
+package-dir = {"" = "src"}
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

@@ -1,0 +1,81 @@
+# SSZ-FULL-METRIC DONOR MANIFEST
+# ================================
+# Repository: ssz-full-metric (Production-Ready SSZ Metric Package)
+# Path: E:\clone\ssz-full-metric\
+# Git Commit: ed5d973e6923295309c23843ab206f9484dfda5b
+# Date: 2025-10-31 22:45:14 +0100
+# Purpose: READ-ONLY donor for API shapes, math utilities, test patterns
+#
+# CRITICAL: This repository is IMMUTABLE - no modifications allowed!
+#
+# ================================
+
+## Key Files for SSZ-METRIC-PURE
+
+### Core Metric (Pure SSZ extraction targets)
+viz_ssz_metric/ssz_mirror_metric.py         (11553 bytes) - Pure SSZ core functions
+viz_ssz_metric/unified_metric.py            (59829 bytes) - MAIN: 26 observable methods
+viz_ssz_metric/segment_density.py           (8309 bytes)  - Segmentation logic
+viz_ssz_metric/saturation.py                (12549 bytes) - φ-saturation
+viz_ssz_metric/numerical_stability.py       (7546 bytes)  - Safe math functions
+
+### Theory Components
+viz_ssz_metric/scalar_action_theory.py      (9810 bytes)  - ScalarActionTheory class
+viz_ssz_metric/ssz_theory_segmented.py      (17027 bytes) - TOV equations (LSODA)
+
+### Differential Geometry
+viz_ssz_metric/christoffel_symbols.py       (7124 bytes)  - Γ^μ_νρ
+viz_ssz_metric/riemann_tensor.py            (7496 bytes)  - R^ρ_σμν
+viz_ssz_metric/ricci_curvature.py           (7298 bytes)  - R_μν, R
+viz_ssz_metric/einstein_tensor.py           (7742 bytes)  - G_μν
+
+### Geodesics & Observables
+viz_ssz_metric/geodesics.py                 (9713 bytes)  - Full geodesic solver
+viz_ssz_metric/geodesics_minimal.py         (5931 bytes)  - Minimal version
+
+### Post-Newtonian & Corrections
+viz_ssz_metric/higher_order_pn.py           (5927 bytes)  - PN series
+viz_ssz_metric/mass_corrections.py          (5748 bytes)  - Δ(M) correction
+viz_ssz_metric/ppn.py                        (11181 bytes) - PPN parameters
+
+### Energy & Curvature
+viz_ssz_metric/energy_conditions.py         (7863 bytes)  - WEC/DEC/SEC
+viz_ssz_metric/energy_momentum_tensor.py    (7974 bytes)  - T_μν
+viz_ssz_metric/kretschmann_weyl.py          (7886 bytes)  - Invariants
+viz_ssz_metric/raychaudhuri.py              (9570 bytes)  - Expansion
+
+### Natural Boundary & Variation
+viz_ssz_metric/natural_boundary.py          (5750 bytes)  - r_φ boundary
+viz_ssz_metric/phi_variation.py             (7056 bytes)  - φ-parameter sweep
+viz_ssz_metric/time_dilation_analysis.py    (7670 bytes)  - Time dilation
+
+### Tests (Patterns to replicate)
+tests/test_complete_metric.py               - Core validation (5 tests)
+tests/test_photon_sphere.py                 - Photon sphere (5 tests)
+tests/test_perihelion.py                    - Mercury (5 tests)
+tests/test_qnm.py                           - QNM (5 tests)
+tests/test_isco.py                          - ISCO (4 tests)
+tests/test_observables_complete.py          - Observables (5 tests)
+
+### CLI Tools
+viz_ssz_metric/sszviz_cli.py                (13750 bytes) - CLI interface
+
+## Usage Strategy for ssz-metric-pure
+
+**EXTRACT (Pure SSZ only):**
+- ✅ ssz_mirror_metric.py → metric_static.py
+- ✅ numerical_stability.py → utils.py
+- ✅ scalar_action_theory.py → tov.py (with ssz_theory_segmented)
+- ✅ christoffel_symbols.py, riemann_tensor.py, etc. → tensors.py
+
+**REFERENCE (API compatibility):**
+- ✅ unified_metric.py → API design patterns
+- ✅ tests/*.py → Test structure
+
+**EXCLUDE (Hybrid GR code):**
+- ❌ Any GR-Kerr direct implementations in core
+- ❌ Hybrid mixing logic (keep only pure SSZ)
+
+## Manifest Generation
+Generated: 2025-10-31 23:48 UTC+01:00
+By: WindSurf Agent (SSZ-METRIC-PURE construction)
