@@ -1,16 +1,18 @@
 """
-SSZ Metric Pure - Unified Parameters
+SSZ Metric Pure - Core Parameters & Constants
 
-Combines the best parameters from:
-- ssz-full-metric (φ-series, numerical stability)
-- Segmented-Spacetime (Δ(M), high-precision geometry)
+Fundamental constants, SSZ parameters, and mass correction Δ(M).
+
+Sources:
+- ssz-full-metric: Production constants
+- ssz-metric-final: Pure SSZ improvements, φ-series
+- Segmented-Spacetime-Results: ESO validated Δ(M)
 
 This is 100% PURE SSZ - no hybrid GR mixing in core equations.
 
 © 2025 Carmen Wrede & Lino Casu
-Licensed under the Anti-Capitalist Software License v1.4
+Licensed under the ANTI-CAPITALIST SOFTWARE LICENSE v1.4
 """
-
 from decimal import Decimal as D, getcontext
 from typing import Optional
 import numpy as np
@@ -22,19 +24,34 @@ getcontext().prec = 200
 # FUNDAMENTAL CONSTANTS (SI Units)
 # ============================================================================
 
-# Gravitational constant (m³ kg⁻¹ s⁻²)
-G_SI = 6.67430e-11
+# Fundamental constants
+G_SI = 6.67430e-11  # m³/(kg·s²) - Gravitational constant (CODATA 2018)
 G_PRECISE = D('6.67430e-11')
 
-# Speed of light (m/s)
-C_SI = 299792458.0
+C_SI = 299792458.0  # m/s - Speed of light (exact by definition)
 C_PRECISE = D('2.99792458e8')
 
-# Golden Ratio φ = (1 + √5)/2
-# GEOMETRIC FOUNDATION of segmented spacetime
-# φ-spiral geometry provides self-similar scaling
-PHI = (1.0 + np.sqrt(5.0)) / 2.0  # ≈ 1.618033988749
+HBAR = 1.054571817e-34  # J·s - Reduced Planck constant
+K_B = 1.380649e-23  # J/K - Boltzmann constant
+
+# Astronomical constants
+M_SUN = 1.98847e30  # kg - Solar mass
+M_SUN_PRECISE = D('1.98847e30')
+R_SUN = 6.96e8  # m - Solar radius
+PC = 3.0857e16  # m - Parsec
+AU = 1.495978707e11  # m - Astronomical unit
+
+# ============================================================================
+# GOLDEN RATIO (φ) - GEOMETRIC FOUNDATION OF SSZ
+# ============================================================================
+
+PHI = (1.0 + np.sqrt(5.0)) / 2.0  # φ ≈ 1.618033988749894...
 PHI_PRECISE = (D(1) + D(5).sqrt()) / D(2)
+
+# φ is NOT a fitting parameter - it emerges from:
+# 1. Fibonacci-like segment recursion
+# 2. Optimal packing in spacetime
+# 3. Natural boundary conditions
 
 # ============================================================================
 # φ-SERIES BREAKTHROUGH (from 28-hour session)
@@ -69,19 +86,21 @@ EPSILON_COEFFICIENTS = {
     6: 1.847,
 }
 
-# Natural Boundary Constants
-R_PHI_RATIO = 0.809  # r_φ / r_s ≈ 0.809 (universal)
-A_MIN = 0.284        # A(r_φ) = 0.284 > 0 (SINGULARITY-FREE!)
-
-# Reduced Planck constant (J·s)
-HBAR = 1.054571817e-34
-
 # Fine structure constant
 ALPHA_FS = 7.2973525693e-3
 
-# Solar mass (kg)
-M_SUN = 1.98847e30
-M_SUN_PRECISE = D('1.98847e30')
+# ============================================================================
+# SSZ UNIVERSAL CONSTANTS (Mass-Independent!)
+# ============================================================================
+
+# Natural boundary ratio
+R_PHI_RATIO = 0.809  # r_φ/r_s ≈ 0.809 (varies slightly with Δ(M))
+
+# Minimum metric coefficient (singularity-free proof!)
+A_MIN = 0.284  # A(r_φ) > 0 → NO SINGULARITY at natural boundary
+
+# Segment saturation maximum
+XI_MAX = 1.0  # Maximum segment density (complete saturation)
 
 # ============================================================================
 # SSZ-SPECIFIC PARAMETERS
