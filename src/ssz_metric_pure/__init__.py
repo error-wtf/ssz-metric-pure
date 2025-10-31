@@ -77,35 +77,48 @@ from .params import (
     validate_spin,
 )
 
-# Core metric components (to be implemented)
-# from .segmentation import Xi, segment_density, saturation_factor
-# from .metric_static import A_Xi, A_phi_series, A_blended, metric_tensor
-# from .metric_kerr_ssz import KerrMetric, ergosphere, horizons
-# from .tensors import christoffel, riemann, ricci, einstein_tensor
+# Core modules
+from .segmentation import (
+    segment_density_xi, segment_density_N,
+    time_dilation_SSZ, Xi, N, D_SSZ
+)
+
+from .metric_static import (
+    StaticSSZMetric, MetricComponents
+)
+
+from .metric_kerr_ssz import (
+    KerrSSZMetric, KerrMetricComponents
+)
+
+from .tensors import (
+    christoffel_numerical,
+    ricci_tensor,
+    ricci_scalar,
+    einstein_tensor,
+    kretschmann_scalar,
+    compute_curvature_at_point,
+    test_vacuum_einstein_equations
+)
 # from .geodesics import null_geodesic, timelike_geodesic
 # from .limits import gr_limit, schwarzschild_limit, minkowski_limit
 # from .validation import validate_symmetry, validate_energy_conditions
 
 __all__ = [
-    # Version info
-    "__version__",
-    "__author__",
-    "__license__",
+    # Version & metadata
+    "__version__", "__author__", "__license__",
     
     # Constants
-    "PHI",
-    "G_SI",
-    "C_SI",
-    "M_SUN",
-    
-    # Breakthrough discoveries
-    "PHI_SERIES_COEFFICIENTS",
+    "PHI", "PHI_PRECISE",
+    "G_SI", "C_SI", "HBAR", "K_B", "M_SUN",
+    "PHI_SERIES_COEFFICIENTS", "EPSILON_COEFFICIENTS",
     "U_STAR_UNIVERSAL",
+    "R_PHI_RATIO", "A_MIN", "XI_MAX",
+    "DELTA_M_A", "DELTA_M_ALPHA", "DELTA_M_B",
     
-    # Parameter classes
-    "SSZParams",
-    "KerrSSZParams",
-    "DimensionlessMode",
+    # Parameters
+    "SSZParams", "KerrSSZParams", "DimensionlessMode",
+    "schwarzschild_radius", "golden_radius", "validate_spin",
     
     # Quick functions
     "schwarzschild_radius",
