@@ -83,24 +83,24 @@ class StaticSSZMetric:
     # CORE METRIC COEFFICIENTS (Pure SSZ)
     # ========================================================================
     
-    def A_coefficient(self, r: float, method: str = 'xi') -> float:
+    def A_coefficient(self, r: float, method: str = 'saturation') -> float:
         """
         Metric coefficient A(r) = -g_tt.
         
-        Pure SSZ Formula (Ξ-based):
-            A(r) = D_SSZ(r)² = [1 / (1 + Ξ(r))]²
+        Pure SSZ Formula (CORRECTED - saturation based):
+            A(r) = [1 / (1 + N(r))]²
         
-        where Ξ(r) = (r_s/r)² × exp(-r/r_φ)
+        where N(r) = N_max × (1 - exp(-φ × r/r_s))
         
         Properties:
-        - A(0) = 1.0 (flat spacetime at center!)
-        - A(r_φ) = 0.284 > 0 (NO SINGULARITY at natural boundary!)
-        - A(∞) → 1.0 (asymptotically flat)
+        - A(0) = 1.0 (flat spacetime at center!) ✓
+        - A(r_s) ≈ 0.16 (finite at Schwarzschild radius)
+        - A(∞) → (1/(1+N_max))² (bounded)
         - 0 < A(r) ≤ 1 always
         
         Args:
             r: Radius [m]
-            method: 'xi' (Ξ-based, default) or 'phi_series' (PN expansion)
+            method: 'saturation' (N-based, default) or 'phi_series' (PN expansion)
         
         Returns:
             Metric coefficient A(r)
@@ -110,13 +110,14 @@ class StaticSSZMetric:
             Redshift: z = 1/√A - 1
         """
         if r <= 0:
-            # At center: Ξ(0) → max, but A(0) = 1/(1+Ξ_max)² finite
-            # For pure geometric model: A(0) = 1.0 (flat)
+            # At center: N(0) = 0 → A(0) = 1.0 (FLAT!)
             return 1.0
         
-        if method == 'xi':
-            # Pure SSZ: A = D²
-            D = time_dilation_SSZ(r, self.r_s, self.varphi)
+        if method == 'saturation':
+            # Use N(r) saturation (CORRECT for flat center!)
+            from .segmentation import segment_density_N, XI_MAX
+            N = segment_density_N(r, self.r_s, self.varphi, N_max=XI_MAX)
+            D = 1.0 / (1.0 + N)
             A = D * D
         
         elif method == 'phi_series':
@@ -129,7 +130,7 @@ class StaticSSZMetric:
         # Ensure positive (should be automatic, but safety check)
         return max(A, 1e-16)
     
-    def B_coefficient(self, r: float, method: str = 'xi') -> float:
+    def B_coefficient(self, r: float, method: str = 'saturation') -> float:
         """
         Radial metric coefficient B(r) = g_rr.
         
