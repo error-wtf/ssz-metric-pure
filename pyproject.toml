@@ -1,0 +1,60 @@
+[tool.poetry]
+name = "ssz-metric-pure"
+version = "1.0.0"
+description = "100% Pure SSZ (Segmented Spacetime Z-Metric) Implementation"
+authors = ["Carmen Wrede", "Lino Casu"]
+license = "Anti-Capitalist Software License v1.4"
+readme = "README.md"
+homepage = "https://github.com/error-wtf/ssz-metric-pure"
+repository = "https://github.com/error-wtf/ssz-metric-pure"
+keywords = ["physics", "relativity", "black-holes", "spacetime", "golden-ratio"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Physics",
+    "Topic :: Scientific/Engineering :: Astronomy",
+]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+numpy = "^1.24.0"
+scipy = "^1.11.0"
+matplotlib = "^3.7.0"
+imageio = "^2.31.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4.0"
+pytest-cov = "^4.1.0"
+black = "^23.7.0"
+mypy = "^1.5.0"
+flake8 = "^6.1.0"
+isort = "^5.12.0"
+
+[tool.poetry.scripts]
+sszviz = "ssz_viz.sszviz:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = "test_*.py"
+python_classes = "Test*"
+python_functions = "test_*"
+addopts = "-v --tb=short -s"
+
+[tool.black]
+line-length = 88
+target-version = ['py39']
+include = '\.pyi?$'
+
+[tool.isort]
+profile = "black"
+line_length = 88
+
+[tool.mypy]
+python_version = "3.9"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
