@@ -58,3 +58,40 @@ temp_frames/
 
 # Logs
 *.log
+
+# SymPy/Symbolic outputs (keep source .tex docs)
+ssz_symbolic_tensors_output.tex
+symbolic_output_*.tex
+output.txt
+output_*.txt
+complete.txt
+*.out
+
+# LaTeX compilation outputs (keep source .tex)
+*.aux
+*.bbl
+*.blg
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.toc
+*.lof
+*.lot
+*.idx
+*.ind
+*.ilg
+*.brf
+*.out
+*.pdf
+!papers/*.pdf
+
+# Large data files (keep small examples)
+*.dat
+*.csv
+!data/*.csv
+!examples/*.csv
+
+# Reports/outputs (generated)
+reports/summary-output.md
+reports/*.json
+!reports/SSZ_*.md
