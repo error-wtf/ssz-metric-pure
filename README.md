@@ -1,7 +1,10 @@
-# SSZ Metric Pure 🌌
+# SSZ Metric Pure 
 
-**Pure Segmented Spacetime (SSZ) Metric Library**  
-*Singularity-free black holes through φ-based geometric structure*
+⚠️ **ARCHIVE NOTICE:** This repository will be manually archived shortly. See [PROJECT_STATUS.md](PROJECT_STATUS.md) for details.  
+**Status:** Alpha (Incomplete) - May receive edits despite archive  
+**Paper:** Scientific findings pending publication  
+
+**Pure Segmented Spacetime (SSZ) metric implementation - 100% singularity-free!** black holes through φ-based geometric structure*
 
 [![License](https://img.shields.io/badge/license-Anti--Capitalist-red)](LICENSE)
 [![Python](https://img.shields.io/badge/python-3.9%2B-blue)](https://python.org)
