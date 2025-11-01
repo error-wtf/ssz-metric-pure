@@ -405,8 +405,10 @@ class PoundRebka:
         beta_val = self.calib.beta(r)
         phi_prime_val = self.calib.phi_prime(r)
         
-        # SSZ: z = β·φ'·h
-        z_ssz = beta_val * phi_prime_val * h
+        # SSZ: z = -β·φ'·h (negative because γ decreases with r)
+        # Photon from bottom (r) to top (r+h): z = (γ_bottom/γ_top) - 1
+        # With γ' = γ·β·φ' and γ decreasing: z ≈ -γ'·h/γ = -β·φ'·h
+        z_ssz = -beta_val * phi_prime_val * h
         
         # GR: z = gh/c²
         g = self.calib.G * self.calib.M / (r**2)
