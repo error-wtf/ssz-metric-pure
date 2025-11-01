@@ -1,0 +1,228 @@
+================================================================================
+SSZ ¤å-SPIRAL vs GR SCHWARZSCHILD - COMPLETE COMPARISON
+================================================================================
+
+================================================================================
+1. METRIC COMPONENTS
+================================================================================
+
+­ƒôÉ SSZ ¤å-Spiral:
+  g_TT = -c**2/cosh(phi(r))**2
+  g_rr = cosh(phi(r))**2
+  g_╬©╬© = r**2
+  g_¤å¤å = r**2*sin(theta)**2
+
+  Ô£¿ SSZ-specific: ╬│(r) = cosh(¤å), spiral structure
+
+­ƒôÉ GR Schwarzschild:
+  g_TT = -c**2*(-2*G*M/(c**2*r) + 1)
+  g_rr = 1/(-2*G*M/(c**2*r) + 1)
+  g_╬©╬© = r**2
+  g_¤å¤å = r**2*sin(theta)**2
+
+  Ô£¿ GR-specific: r_g = 2GM/c┬▓, singularity at r=0
+
+================================================================================
+2. CHRISTOFFEL SYMBOLS CLASSIFICATION
+================================================================================
+
+­ƒö┤ SSZ-SPECIFIC TERMS (contain ╬▓┬À¤å'):
+  ╬ô^T_Tr = -tanh(phi(r))*Derivative(phi(r), r)
+  ╬ô^T_rT = -tanh(phi(r))*Derivative(phi(r), r)
+  ╬ô^r_TT = -c**2*tanh(phi(r))*Derivative(phi(r), r)/cosh(phi(r))**4
+  ╬ô^r_rr = tanh(phi(r))*Derivative(phi(r), r)
+  ╬ô^r_╬©╬© = -r/cosh(phi(r))**2
+  ╬ô^r_¤å¤å = -r*sin(theta)**2/cosh(phi(r))**2
+
+  ÔåÆ These terms encode the spiral structure
+  ÔåÆ Vanish in GR (no ¤å)
+
+­ƒƒó GR-IDENTICAL TERMS (pure angular):
+  ╬ô^╬©_r╬© = 1/r
+  ╬ô^╬©_╬©r = 1/r
+  ╬ô^╬©_¤å¤å = -sin(theta)*cos(theta)
+  ╬ô^¤å_r¤å = 1/r
+  ╬ô^¤å_¤år = 1/r
+  ╬ô^¤å_╬©¤å = cos(theta)/sin(theta)
+  ╬ô^¤å_¤å╬© = cos(theta)/sin(theta)
+
+  ÔåÆ These are the same in both SSZ and GR
+  ÔåÆ Spherical symmetry preserved
+
+================================================================================
+3. RICCI TENSOR CLASSIFICATION
+================================================================================
+
+R_TT:
+  Expression: -c**2*(r*Derivative(phi(r), (r, 2)) + 2*Derivative(phi(r), r))/(r*cosh(phi(r))**2)
+  Type: SSZ-specific
+  Contains ¤å': True
+  Contains ¤å'': True
+  Note: Pure spiral curvature terms
+
+R_rr:
+  Expression: Derivative(phi(r), (r, 2)) + 2*Derivative(phi(r), r)/r
+  Type: SSZ-specific
+  Contains ¤å': True
+  Contains ¤å'': True
+  Note: Radial spiral gradient
+
+R_╬©╬©:
+  Expression: (r*Derivative(phi(r), r) + sinh(phi(r))**2)/cosh(phi(r))**2
+  Type: Mixed
+  Contains ¤å': True
+  Contains ¤å'': False
+  Note: Combines SSZ (¤å') and GR-like (1) terms
+
+R_¤å¤å:
+  Expression: (r*Derivative(phi(r), r) + sinh(phi(r))**2)*sin(theta)**2/cosh(phi(r))**2
+  Type: Mixed
+  Contains ¤å': True
+  Contains ¤å'': False
+  Note: Angular ├ù SSZ coupling
+
+================================================================================
+4. RICCI SCALAR DECOMPOSITION
+================================================================================
+
+­ƒôè Full Ricci scalar:
+  R = 2*(-2*tanh(phi(r))**2*Derivative(phi(r), r)**2 + tanh(phi(r))*Derivative(phi(r), (r, 2)) + Derivative(phi(r), r)**2/cosh(phi(r))**2 + 2*tanh(phi(r))*Derivative(phi(r), r)/r)/cosh(phi(r))**2
+
+­ƒö┤ SSZ Spiral Terms:
+  ¤å'^2 / ╬│^4: 2*Derivative(phi(r), r)**2/cosh(phi(r))**4
+  ╬▓┬À¤å'': 2*tanh(phi(r))*Derivative(phi(r), (r, 2))/cosh(phi(r))**2
+  -2╬▓^2┬À¤å'^2: -4*tanh(phi(r))**2*Derivative(phi(r), r)**2/cosh(phi(r))**2
+
+­ƒö┤ SSZ Radial Term:
+  2╬▓┬À¤å'/r: 4*tanh(phi(r))*Derivative(phi(r), r)/(r*cosh(phi(r))**2)
+
+  Note: All terms contain SSZ variables (¤å, ╬▓, ╬│)
+
+================================================================================
+5. EINSTEIN TENSOR CLASSIFICATION
+================================================================================
+
+G^T_T:
+  Expression: (r*Derivative(phi(r), r) + sinh(2*phi(r)))*Derivative(phi(r), r)/(r*cosh(phi(r))**4)
+  Type: Pure SSZ
+  SSZ terms: ╬▓┬À¤å'/r, ¤å'^2/╬│^4
+  GR-like terms: None
+  Note: No GR equivalent - spiral energy density
+
+G^r_r:
+  Expression: 2*tanh(phi(r))*Derivative(phi(r), r)/(r*cosh(phi(r))**2)
+  Type: Pure SSZ
+  SSZ terms: ╬▓┬À¤å'/r
+  GR-like terms: None
+  Note: Radial spiral pressure
+
+G^╬©_╬©:
+  Expression: (r*Derivative(phi(r), r) + cosh(phi(r))**2)*Derivative(phi(r), r)/(r*cosh(phi(r))**4)
+  Type: Pure SSZ
+  SSZ terms: ¤å'/╬│^2, 1/r coupling
+  GR-like terms: None
+  Note: Angular modified by spiral
+
+G^¤å_¤å:
+  Expression: (r*Derivative(phi(r), r) + cosh(phi(r))**2)*Derivative(phi(r), r)/(r*cosh(phi(r))**4)
+  Type: Pure SSZ
+  SSZ terms: Same as G^╬©_╬©
+  GR-like terms: None
+  Note: Spherical symmetry preserved
+
+================================================================================
+6. NUMERICAL COMPARISON (Earth)
+================================================================================
+
+At r = 10 r_g (8.870e-02 m):
+  ¤å = 0.316228
+  ╬│ = 1.050418
+  ╬▓ = 0.306092
+
+  SSZ:
+    g_TT = -8.145487e+16 m┬▓/s┬▓
+    g_rr = 1.103378
+
+  GR:
+    g_TT = -8.088797e+16 m┬▓/s┬▓
+    g_rr = 1.111111
+
+  Difference:
+    ╬ög_TT = -5.669025e+14 (0.701%)
+    ╬ög_rr = -7.733014e-03 (0.696%)
+
+At r = 100 r_g (8.870e-01 m):
+  ¤å = 0.100000
+  ╬│ = 1.005004
+  ╬▓ = 0.099668
+
+  SSZ:
+    g_TT = -8.898272e+16 m┬▓/s┬▓
+    g_rr = 1.010033
+
+  GR:
+    g_TT = -8.897676e+16 m┬▓/s┬▓
+    g_rr = 1.010101
+
+  Difference:
+    ╬ög_TT = -5.957924e+12 (0.007%)
+    ╬ög_rr = -6.763229e-05 (0.007%)
+
+At r = 1000 r_g (8.870e+00 m):
+  ¤å = 0.031623
+  ╬│ = 1.000500
+  ╬▓ = 0.031612
+
+  SSZ:
+    g_TT = -8.978570e+16 m┬▓/s┬▓
+    g_rr = 1.001000
+
+  GR:
+    g_TT = -8.978564e+16 m┬▓/s┬▓
+    g_rr = 1.001001
+
+  Difference:
+    ╬ög_TT = -5.988308e+10 (0.000%)
+    ╬ög_rr = -6.676232e-07 (0.000%)
+
+At r = 10000 r_g (8.870e+01 m):
+  ¤å = 0.010000
+  ╬│ = 1.000050
+  ╬▓ = 0.010000
+
+  SSZ:
+    g_TT = -8.986653e+16 m┬▓/s┬▓
+    g_rr = 1.000100
+
+  GR:
+    g_TT = -8.986653e+16 m┬▓/s┬▓
+    g_rr = 1.000100
+
+  Difference:
+    ╬ög_TT = -5.991361e+08 (0.000%)
+    ╬ög_rr = -6.667622e-09 (0.000%)
+
+================================================================================
+7. SUMMARY: WHERE SSZ LIVES
+================================================================================
+
+­ƒö┤ SSZ-SPECIFIC (spiral structure):
+  ÔÇó Metric: ╬│ = cosh(¤å) in g_TT, g_rr
+  ÔÇó Christoffels: ╬▓┬À¤å' in ╬ô^T_Tr, ╬ô^r_TT, ╬ô^r_rr
+  ÔÇó Ricci: ¤å', ¤å'' in all components
+  ÔÇó Einstein: Pure SSZ terms, no GR analogue
+  ÔÇó Curvature: Finite everywhere (no singularity)
+
+­ƒƒó GR-IDENTICAL (preserved):
+  ÔÇó Angular Christoffels: Pure 1/r, cot(╬©)
+  ÔÇó Spherical symmetry: g_╬©╬©, g_¤å¤å functional form
+  ÔÇó Asymptotic flatness: Both ÔåÆ Minkowski
+
+­ƒƒí DIFFERENCES:
+  ÔÇó Weak field (r >> r_g): < 0.1% deviation
+  ÔÇó Strong field (r ~ r_g): SSZ finite, GR singular
+  ÔÇó Energy-momentum: SSZ has spiral terms
+
+================================================================================
+Ô£à COMPARISON COMPLETE
+================================================================================
