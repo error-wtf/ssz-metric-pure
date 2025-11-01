@@ -401,15 +401,25 @@ src/ssz_metric_pure/ssz_symbolic_sparse.py        # Symbolic + validators
 
 ### Citation
 
+**APA Format:**
+```
+Wrede, C., & Casu, L. (2025). Segmented Spacetime φ-Spiral Metric: 
+  Validation and Calibration. SSZ-PURE v2.1 Dataset and Validation 
+  Repository. https://github.com/error-wtf/ssz-metric-pure
+  DOI: [pending]
+```
+
+**BibTeX Format:**
 ```bibtex
 @software{ssz_metric_2025,
-  title = {SSZ φ-Spiral Metric: Complete 4D Tensor Formulation},
+  title = {Segmented Spacetime φ-Spiral Metric: Validation and Calibration},
   author = {Wrede, Carmen and Casu, Lino},
   year = {2025},
+  version = {2.1.0},
   url = {https://github.com/error-wtf/ssz-metric-pure},
-  version = {2.0.0},
+  doi = {pending},
   license = {ANTI-CAPITALIST SOFTWARE LICENSE v1.4},
-  note = {Complete tensor package with symbolic (SymPy) and numerical (NumPy) implementations}
+  note = {SSZ-PURE v2.1 Dataset and Validation Repository with 2PN calibration}
 }
 ```
 
