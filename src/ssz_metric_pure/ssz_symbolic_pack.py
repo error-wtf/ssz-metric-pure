@@ -146,7 +146,7 @@ def calibrated(expr):
         gamma: sp.cosh(phi_cal),
         beta: sp.tanh(phi_cal)
     }
-    return sp.simplify(sp.xreplace(expr, subs))
+    return sp.simplify(expr.xreplace(subs))
 
 # -----------------------------
 # 7) LaTeX export helpers

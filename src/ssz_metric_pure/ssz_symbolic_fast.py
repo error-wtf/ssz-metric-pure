@@ -130,7 +130,7 @@ def calibrated(expr):
         gamma: sp.cosh(phi_cal),
         beta: sp.tanh(phi_cal)
     }
-    return sp.simplify(sp.xreplace(expr, subs))
+    return sp.simplify(expr.xreplace(subs))
 
 # -----------------------------
 # 6) Metric compatibility test: ∇_α g_μν = 0
