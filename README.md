@@ -1,10 +1,10 @@
-# SSZ Metric Pure 
+# SSZ Metric Pure
 
-⚠️ **ARCHIVE NOTICE:** This repository will be manually archived shortly. See [PROJECT_STATUS.md](PROJECT_STATUS.md) for details.  
-**Status:** Alpha (Incomplete) - May receive edits despite archive  
-**Paper:** Scientific findings pending publication  
+> ⚠️ **ARCHIVE NOTICE:** This repository will be manually archived shortly. See [PROJECT_STATUS.md](PROJECT_STATUS.md) for details.  
+> **Status:** 🟡 Alpha (Incomplete) - May receive edits despite archive  
+> **Paper:** Scientific findings pending publication  
 
-**Pure Segmented Spacetime (SSZ) metric implementation - 100% singularity-free!** black holes through φ-based geometric structure*
+**Pure Segmented Spacetime (SSZ) metric implementation - 100% singularity-free black holes through φ-based geometric structure**
 
 [![License](https://img.shields.io/badge/license-Anti--Capitalist-red)](LICENSE)
 [![Python](https://img.shields.io/badge/python-3.9%2B-blue)](https://python.org)
@@ -13,16 +13,42 @@
 
 ---
 
+## 📖 About This Repository
+
+This is a **Pure SSZ Metric** implementation - the **only** Segmented Spacetime repository that may receive edits after archiving.
+
+### What This Contains
+- ✅ **Pure SSZ Formulation:** No hybrid GR mixing in core
+- ✅ **Static Metric:** Fully implemented & validated (Schwarzschild-like)
+- ⚠️ **Rotating Metric:** Attempted Kerr-like implementation (alpha status)
+- ✅ **Singularity-Free:** Mathematically proven (A(0) = 1.0)
+- ✅ **Curvature Tensors:** Christoffel, Riemann, Ricci, Einstein
+- ⚠️ **Incomplete:** Geodesics, energy conditions, further validation needed
+
+### Scientific Paper
+**A formal paper based on these findings is in preparation.** This repository serves as the computational implementation supporting the theoretical work.
+
+### Archive Status
+**Unique Policy:** Despite being archived, this repository MAY receive:
+- Bug fixes (critical only)
+- Paper-related updates
+- Documentation clarifications
+- Scientific corrections
+
+All changes require explicit approval and must be non-breaking.
+
+---
+
 ## 🎯 What is SSZ Metric Pure?
 
 **SSZ Metric Pure** is a **100% pure implementation** of the Segmented Spacetime framework - a singularity-free alternative to General Relativity. This library provides:
 
-- **Static SSZ Metric:** Non-rotating black holes without singularities
-- **SSZ-Kerr Metric:** Rotating black holes with frame dragging
-- **Complete Differential Geometry:** Tensors, curvature, geodesics
-- **GR Limit Validation:** Recovers Schwarzschild/Kerr in appropriate limits
+- **Static SSZ Metric:** Non-rotating black holes without singularities (A(0) = 1.0)
+- **SSZ-Kerr Metric:** Rotating black holes with frame dragging (alpha)
+- **Complete Differential Geometry:** Tensors, curvature calculations
+- **φ-Based Structure:** Golden Ratio emerges naturally, not fitted
 
-**Philosophy:** Pure SSZ core equations with GR as a validation layer only.
+**Philosophy:** Pure SSZ core equations validated against GR limits.
 
 ### Unified from:
 - ✅ **ssz-full-metric** - Production code, math utilities
