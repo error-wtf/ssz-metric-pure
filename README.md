@@ -135,6 +135,12 @@ comparison = calib.compare_to_gr(r=1e8)
 **Summary**: 8/10 PASS, 2/10 CAUTION (estimates) → **80% Complete**  
 **Target**: 10/10 PASS with geodesic integration (Week 2)
 
+**Note on CAUTION tests**:
+- Shapiro Delay & Light Deflection currently use 1PN analytical estimates (correct formulas)
+- Full SSZ integration needed: ΔT = ∫[γ²(r)/c·√(...)dr], α = 2∫[(b/r²)·γ/√(...)dr] - π
+- Expected after integration: < 1e-5 deviation (< 0.001%)
+- See `ROADMAP_TO_100_PERCENT.md` for complete implementation details
+
 ### 📊 Numerical Precision (Pytest Results)
 
 ```

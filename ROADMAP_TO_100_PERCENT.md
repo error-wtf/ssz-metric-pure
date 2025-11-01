@@ -33,27 +33,36 @@ Date: November 1, 2025
 
 ### Test 9: Shapiro Delay → Full Integration
 
-**Current Status**: ⚠️ CAUTION (estimate: 0.00001% deviation)
+**Current Status**: ⚠️ CAUTION (using 1PN analytical estimate)
+
+**Why CAUTION**:
+Currently using classical GR 1PN approximation, not integrated from full SSZ metric:
+```python
+# Current: 1PN analytical estimate (correct but not SSZ-integrated)
+Δt_Shapiro ≈ (2GM/c³) ln(4r_E r_M / b²)
+```
 
 **What's Missing**:
-Full null geodesic integration along the photon path.
+Full numerical integration from SSZ φ-spiral metric.
 
-**Current Implementation**:
+**Needed Implementation (Lino's exact specification)**:
 ```python
-# Using first-order estimate
-Delta_t_shapiro ≈ (4GM/c³) ln(r_E r_M / b²)
-```
-
-**Needed Implementation**:
-```python
-# Full radial integration (Lino's specification)
-Delta_T_SSZ = ∫ [(γ²(r)/c) - (1/c)] dr
+# Full SSZ light travel time integration
+ΔT_SSZ = ∫[r_min to r_max] {
+    γ²(r) / [c·√(1 - (b²/r²)·sech²(φ(r)))]
+  } dr - (1/c)·(r_max - r_min)
 
 where:
-  • Integration along impact parameter b
-  • Symmetric path (Earth → Sun → Mars)
-  • Null geodesic: ds² = 0
+  • γ(r) = cosh(φ(r)) from 2PN calibration
+  • b = impact parameter (closest approach)
+  • Null geodesic constraint included
+  • Integration: Earth → closest approach → Mars (symmetric)
 ```
+
+**Expected Result (Sun)**:
+- ΔT_SSZ ≈ 226.0 µs
+- Deviation from GR: < 1e-5 (< 0.001%)
+- Status after implementation: ⚠️ CAUTION → ✅ PASS
 
 **Technical Details**:
 ```python
@@ -130,27 +139,36 @@ def shapiro_delay_integrated(r_earth, r_mars, b, M, G, c):
 
 ### Test 10: Light Deflection → 2D Geodesic Solver
 
-**Current Status**: ⚠️ CAUTION (estimate: 0.00001% deviation)
+**Current Status**: ⚠️ CAUTION (using 1PN analytical estimate)
+
+**Why CAUTION**:
+Currently using classical GR 1PN approximation, not integrated from full SSZ metric:
+```python
+# Current: 1PN analytical estimate (correct but not SSZ-integrated)
+α_GR ≈ 4GM/(c²·b)  # ≈ 1.75" for Sun
+```
 
 **What's Missing**:
-Full 2D null geodesic integration with angular coordinate.
+Full numerical integration for deflection angle from SSZ φ-spiral metric.
 
-**Current Implementation**:
+**Needed Implementation (Lino's exact specification)**:
 ```python
-# Using first-order estimate
-alpha ≈ 4GM/(c²·b)  # ≈ 1.75" for Sun
-```
-
-**Needed Implementation**:
-```python
-# Full 2D null geodesic with φ coordinate
-# Solve: d²φ/dλ² + (geodesic equation in φ)
+# Full SSZ deflection angle integration
+α_SSZ = 2·∫[r_min to ∞] {
+    (b/r²) · γ(r) / √(1 - (b²/r²)·sech²(φ(r)))
+  } dr - π
 
 where:
-  • Null geodesic: ds² = 0
-  • Impact parameter b (angular momentum)
-  • Asymptotic deflection angle from φ(λ→∞)
+  • γ(r) = cosh(φ(r)) from 2PN calibration
+  • b = impact parameter (solar radius for grazing light)
+  • Null geodesic constraint included
+  • Integration from closest approach to infinity
 ```
+
+**Expected Result (Sun, grazing)**:
+- α_SSZ ≈ 1.749" (arcseconds)
+- Deviation from GR: < 1e-5 (< 0.001%)
+- Status after implementation: ⚠️ CAUTION → ✅ PASS
 
 **Technical Details**:
 ```python
