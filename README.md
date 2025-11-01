@@ -178,9 +178,30 @@ FINAL_VERIFICATION_SUMMARY.md - All results
 
 ## 💻 Installation & Usage
 
+### Quick Install (Recommended)
+
+**Windows:**
+```powershell
+.\install.ps1
+```
+
+**Linux/macOS:**
+```bash
+chmod +x install.sh
+./install.sh
+```
+
+The install scripts will:
+- ✅ Check Python 3.10+ installed
+- ✅ Install all dependencies (numpy, scipy, sympy, matplotlib)
+- ✅ Optionally run validation tests
+- ✅ Optionally generate complete report
+
+### Manual Installation
+
 ```bash
 # Clone repository
-git clone https://github.com/your-org/ssz-metric-pure.git
+git clone https://github.com/error-wtf/ssz-metric-pure.git
 cd ssz-metric-pure
 
 # Install dependencies
