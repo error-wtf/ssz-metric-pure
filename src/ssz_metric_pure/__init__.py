@@ -87,8 +87,12 @@ from .metric_static import (
     StaticSSZMetric, MetricComponents
 )
 
-from .metric_kerr_ssz import (
+from .metric_kerr_ssz_kerr_by_ki import (
     KerrSSZMetric, KerrMetricComponents
+)
+
+from .metric_phi_spiral_ssz_by_human import (
+    PhiSpiralSSZMetric, PhiSpiralMetricComponents
 )
 
 from .tensors import (
@@ -120,10 +124,19 @@ __all__ = [
     "SSZParams", "KerrSSZParams", "DimensionlessMode",
     "schwarzschild_radius", "golden_radius", "validate_spin",
     
-    # Quick functions
-    "schwarzschild_radius",
-    "golden_radius",
-    "validate_spin",
+    # Metric Classes
+    "StaticSSZMetric", "MetricComponents",
+    "KerrSSZMetric", "KerrMetricComponents",
+    "PhiSpiralSSZMetric", "PhiSpiralMetricComponents",
+    
+    # Segmentation
+    "segment_density_xi", "segment_density_N",
+    "time_dilation_SSZ", "Xi", "N", "D_SSZ",
+    
+    # Tensors
+    "christoffel_numerical", "ricci_tensor", "ricci_scalar",
+    "einstein_tensor", "kretschmann_scalar",
+    "compute_curvature_at_point", "test_vacuum_einstein_equations",
 ]
 
 # Scientific achievements summary

@@ -1,0 +1,28 @@
+
+================================================================================
+FINAL COMPARISON & INTERPRETATION - ALL SSZ METRICS
+================================================================================
+
+Comparing:
+  1. ¤å-Spiral (pure k=1.0)
+  2. ¤å-Spiral (calibrated ¤å┬▓=2GM/rc┬▓)
+  3. Static SSZ
+  4. Schwarzschild GR (reference)
+
+--------------------------------------------------------------------------------
+INITIALIZING METRICS
+--------------------------------------------------------------------------------
+
+Mass: 1.9885e+30 kg (Sun)
+r_g: 2.953e+03 m
+
+================================================================================
+1. METRIC COMPONENTS COMPARISON
+================================================================================
+
+r/r_g      Pure g_TT       Cal g_TT        Static g_TT     GR g_tt        
+--------------------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\clone\ssz-metric-pure\FINAL_COMPARISON_AND_INTERPRETATION.py", line 95, in <module>
+    g_TT_cal_norm = g_TT_cal / (phi_cal.c ** 2)
+AttributeError: 'SSZCalibratedMetric' object has no attribute 'c'

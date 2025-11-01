@@ -1,0 +1,32 @@
+{
+  "metric": "φ-Spiral SSZ (Calibrated)",
+  "calibration": "φ²_G = 2GM/(rc²)",
+  "timestamp": "2025-11-01T12:55:51.499767",
+  "bodies_tested": [
+    "Earth",
+    "Sun"
+  ],
+  "tests": {
+    "metric_compatible": true,
+    "asymptotic_flatness": true,
+    "singularity_free": true,
+    "energy_conserved": true,
+    "causality": true,
+    "gps_validated": true
+  },
+  "numerical_values": {
+    "Earth": {
+      "metric_compatibility_error": 1.7960777466778497e-16,
+      "gps_error": 1.9228989716416256e-07,
+      "asymptotic_error_g_TT": 9.99999333228807e-07,
+      "asymptotic_error_g_rr": 1.0000003332066854e-06
+    },
+    "Sun": {
+      "metric_compatibility_error": 0.0,
+      "gps_error": 7.681518713898311e-06,
+      "asymptotic_error_g_TT": 9.99999333228807e-07,
+      "asymptotic_error_g_rr": 1.0000003332066854e-06
+    }
+  },
+  "conclusion": "SSZ metric confirmed as fully metric-compatible, asymptotically flat, singularity-free, and experimentally consistent."
+}
