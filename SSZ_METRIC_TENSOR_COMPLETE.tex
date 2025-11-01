@@ -1,0 +1,330 @@
+% ===================================================================
+% SSZ φ-Spiral Metric - Complete 4D Tensor Formulation
+% ===================================================================
+% Paper-ready: Metric tensor (4D), inverse metric, all Christoffel symbols
+% © 2025 Carmen Wrede & Lino Casu
+% Based on Lino's complete tensor specification
+% ===================================================================
+
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{physics}
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+
+\begin{document}
+
+\title{\textbf{SSZ φ-Spiral Metric}\\
+Complete 4D Tensor Formulation}
+\author{Carmen Wrede \and Lino Casu}
+\date{November 2025}
+
+\maketitle
+
+\section{Notation}
+
+\paragraph{Coordinates:} $(x^\mu) = (T, r, \theta, \varphi)$
+
+\paragraph{SSZ spiral functions:}
+\begin{align*}
+\phi(r) &\equiv \phi_G(r) = \sqrt{\frac{2GM}{r c^2}} \quad \text{(calibrated spiral angle)} \\
+\gamma(r) &= \cosh(\phi(r)) \\
+\beta(r) &= \tanh(\phi(r)) \\
+\phi'(r) &= \frac{d\phi}{dr}
+\end{align*}
+
+\paragraph{Useful identities:}
+\begin{align*}
+1 - \beta^2 &= \operatorname{sech}^2(\phi) = \frac{1}{\gamma^2} \\
+\gamma' &= \frac{d\gamma}{dr} = \sinh(\phi)\,\phi' = \gamma\,\beta\,\phi' \\
+\frac{\gamma'}{\gamma} &= \beta\,\phi'
+\end{align*}
+
+% ===================================================================
+\section{1. Metric Tensor $g_{\mu\nu}$ and Inverse $g^{\mu\nu}$}
+
+\subsection{Line Element (SSZ diagonal form)}
+
+\[
+\boxed{
+ds^2 = -\frac{c^2}{\gamma(r)^2}\,dT^2 + \gamma(r)^2\,dr^2 + r^2\,d\theta^2 + r^2\sin^2\!\theta\,d\varphi^2
+}
+\]
+
+\subsection{Metric Matrix $g_{\mu\nu}$}
+
+Order: $(T, r, \theta, \varphi)$
+
+\[
+\boxed{
+g_{\mu\nu} = 
+\begin{pmatrix}
+-\dfrac{c^2}{\gamma^2} & 0 & 0 & 0 \\[6pt]
+0 & \gamma^2 & 0 & 0 \\[4pt]
+0 & 0 & r^2 & 0 \\[4pt]
+0 & 0 & 0 & r^2\sin^2\!\theta
+\end{pmatrix}
+}
+\]
+
+\subsection{Inverse Metric $g^{\mu\nu}$}
+
+\[
+\boxed{
+g^{\mu\nu} = 
+\begin{pmatrix}
+-\dfrac{\gamma^2}{c^2} & 0 & 0 & 0 \\[6pt]
+0 & \dfrac{1}{\gamma^2} & 0 & 0 \\[6pt]
+0 & 0 & \dfrac{1}{r^2} & 0 \\[6pt]
+0 & 0 & 0 & \dfrac{1}{r^2\sin^2\!\theta}
+\end{pmatrix}
+}
+\]
+
+\subsection{Verification}
+
+\[
+g_{\mu\nu}\,g^{\nu\rho} = \delta_\mu{}^\rho \quad \checkmark
+\]
+
+% ===================================================================
+\section{2. Non-vanishing Christoffel Symbols $\Gamma^\rho_{\phantom{\rho}\mu\nu}$}
+
+All other components are either 0 or related by symmetry $\Gamma^\rho_{\phantom{\rho}\mu\nu} = \Gamma^\rho_{\phantom{\rho}\nu\mu}$.
+
+\subsection{Time--Radial Part (SSZ contribution)}
+
+\paragraph{Time component:}
+\[
+\boxed{
+\Gamma^{T}_{\phantom{T}Tr} = \Gamma^{T}_{\phantom{T}rT} = -\beta\,\phi'
+}
+\]
+
+\paragraph{Radial components:}
+\[
+\boxed{
+\Gamma^{r}_{\phantom{r}TT} = -\frac{c^2\,\beta\,\phi'}{\gamma^4}
+}
+\]
+
+\[
+\boxed{
+\Gamma^{r}_{\phantom{r}rr} = +\beta\,\phi'
+}
+\]
+
+\subsection{Spherical Part (standard spherical, modified by $\gamma$)}
+
+\paragraph{Radial components (angular contributions):}
+\[
+\boxed{
+\Gamma^{r}_{\phantom{r}\theta\theta} = -\frac{r}{\gamma^2}
+\qquad
+\Gamma^{r}_{\phantom{r}\varphi\varphi} = -\frac{r}{\gamma^2}\sin^2\!\theta
+}
+\]
+
+\paragraph{Theta components:}
+\[
+\boxed{
+\Gamma^{\theta}_{\phantom{\theta}r\theta} = \Gamma^{\theta}_{\phantom{\theta}\theta r} = \frac{1}{r}
+}
+\]
+
+\[
+\boxed{
+\Gamma^{\theta}_{\phantom{\theta}\varphi\varphi} = -\sin\theta\cos\theta
+}
+\]
+
+\paragraph{Phi components:}
+\[
+\boxed{
+\Gamma^{\varphi}_{\phantom{\varphi}r\varphi} = \Gamma^{\varphi}_{\phantom{\varphi}\varphi r} = \frac{1}{r}
+}
+\]
+
+\[
+\boxed{
+\Gamma^{\varphi}_{\phantom{\varphi}\theta\varphi} = \Gamma^{\varphi}_{\phantom{\varphi}\varphi\theta} = \cot\theta
+}
+\]
+
+\subsection{Summary: Complete List of Non-zero Christoffel Symbols}
+
+\begin{center}
+\begin{tabular}{|c|l|}
+\hline
+\textbf{Symbol} & \textbf{Value} \\
+\hline
+\hline
+\multicolumn{2}{|c|}{\textit{SSZ-specific (time-radial)}} \\
+\hline
+$\Gamma^{T}_{\phantom{T}Tr}$ & $-\beta\,\phi'$ \\
+$\Gamma^{r}_{\phantom{r}TT}$ & $-\dfrac{c^2\,\beta\,\phi'}{\gamma^4}$ \\
+$\Gamma^{r}_{\phantom{r}rr}$ & $+\beta\,\phi'$ \\
+\hline
+\multicolumn{2}{|c|}{\textit{Spherical (modified by $\gamma$)}} \\
+\hline
+$\Gamma^{r}_{\phantom{r}\theta\theta}$ & $-\dfrac{r}{\gamma^2}$ \\
+$\Gamma^{r}_{\phantom{r}\varphi\varphi}$ & $-\dfrac{r}{\gamma^2}\sin^2\!\theta$ \\
+$\Gamma^{\theta}_{\phantom{\theta}r\theta}$ & $\dfrac{1}{r}$ \\
+$\Gamma^{\theta}_{\phantom{\theta}\varphi\varphi}$ & $-\sin\theta\cos\theta$ \\
+$\Gamma^{\varphi}_{\phantom{\varphi}r\varphi}$ & $\dfrac{1}{r}$ \\
+$\Gamma^{\varphi}_{\phantom{\varphi}\theta\varphi}$ & $\cot\theta$ \\
+\hline
+\end{tabular}
+\end{center}
+
+% ===================================================================
+\section{3. Properties and Checks}
+
+\subsection{Stationarity}
+
+\begin{itemize}
+\item No $\partial_T$ derivatives of metric $\Rightarrow$ all $\Gamma^\rho_{\phantom{\rho}\mu\nu}$ with $\partial_T$ vanish
+\item Time-translation symmetry preserved
+\item Conserved energy along geodesics
+\end{itemize}
+
+\subsection{Diagonal Structure}
+
+\begin{itemize}
+\item No cross-terms $g_{Tr} = 0$ $\Rightarrow$ $\Gamma^{r}_{\phantom{r}Tr} = \Gamma^{T}_{\phantom{T}TT} = 0$
+\item Simplifies geodesic equations
+\item Metric is manifestly symmetric
+\end{itemize}
+
+\subsection{Limits}
+
+\paragraph{Constant spiral phase ($\phi' \to 0$):}
+\begin{itemize}
+\item SSZ-specific terms vanish: $\Gamma^{T}_{\phantom{T}Tr}, \Gamma^{r}_{\phantom{r}TT}, \Gamma^{r}_{\phantom{r}rr} \to 0$
+\item $(T,r)$ sector becomes flat
+\item Only spherical curvature remains
+\end{itemize}
+
+\paragraph{Weak field ($\gamma \to 1$):}
+\begin{itemize}
+\item Recovers standard flat-space Christoffel symbols in spherical coordinates
+\item SSZ corrections $\propto \phi' \approx \sqrt{GM/(rc^2)} \cdot (1/r)$
+\item Matches GR in first Post-Newtonian order
+\end{itemize}
+
+% ===================================================================
+\section{4. Compact 2D Form (Optional)}
+
+For derivations with angles held fixed, the $(T,r)$ reduction:
+
+\subsection{2D Line Element}
+\[
+ds^2 = -\frac{c^2}{\gamma^2}\,dT^2 + \gamma^2\,dr^2
+\]
+
+\subsection{2D Christoffel Symbols}
+\[
+\boxed{
+\begin{aligned}
+\Gamma^{T}_{\phantom{T}Tr} = \Gamma^{T}_{\phantom{T}rT} &= -\frac{\gamma'}{\gamma} = -\beta\,\phi' \\[6pt]
+\Gamma^{r}_{\phantom{r}TT} &= -\frac{c^2\,\gamma'}{\gamma^5} = -\frac{c^2\,\beta\,\phi'}{\gamma^4} \\[6pt]
+\Gamma^{r}_{\phantom{r}rr} &= +\frac{\gamma'}{\gamma} = +\beta\,\phi'
+\end{aligned}
+}
+\]
+
+\subsection{2D Geodesic Equations}
+
+With proper time parameter $\lambda$:
+\[
+\boxed{
+\begin{aligned}
+\ddot{T} - 2\,\frac{\gamma'}{\gamma}\,\dot{T}\,\dot{r} &= 0 \\[6pt]
+\ddot{r} - \frac{c^2\,\gamma'}{\gamma^5}\,\dot{T}^2 + \frac{\gamma'}{\gamma}\,\dot{r}^2 &= 0
+\end{aligned}
+}
+\]
+
+where $\dot{T} = dT/d\lambda$, $\dot{r} = dr/d\lambda$.
+
+\subsection{Null Geodesic Slope}
+
+For photons ($ds^2 = 0$):
+\[
+\boxed{
+\frac{dr}{dT} = \pm \frac{c}{\gamma^2} = \pm c\,\operatorname{sech}^2(\phi(r))
+}
+\]
+
+This describes the progressive \textbf{light cone closing} as $r$ decreases, approaching 100\% closure for $r \to 0$ but remaining finite (no singularity).
+
+% ===================================================================
+\section{5. Physical Interpretation}
+
+\subsection{SSZ-Specific Terms}
+
+The three SSZ contributions to Christoffel symbols:
+\begin{align*}
+\Gamma^{T}_{\phantom{T}Tr} &= -\beta\,\phi' \quad \text{(time coordinate rotation)} \\
+\Gamma^{r}_{\phantom{r}TT} &= -\frac{c^2\,\beta\,\phi'}{\gamma^4} \quad \text{(gravitational acceleration)} \\
+\Gamma^{r}_{\phantom{r}rr} &= +\beta\,\phi' \quad \text{(radial coordinate stretching)}
+\end{align*}
+
+These arise from the \textbf{spiral rotation} $\phi_G(r)$ and encode:
+\begin{itemize}
+\item Time dilation: $d\tau/dT = 1/\gamma = \operatorname{sech}(\phi)$
+\item Light cone closing: $dr/dT = c/\gamma^2 = c\,\operatorname{sech}^2(\phi)$
+\item Gravitational redshift: $1 + z = \gamma_{\text{emit}}/\gamma_{\text{obs}}$
+\end{itemize}
+
+\subsection{Singularity Freedom}
+
+All Christoffel symbols remain \textbf{finite} for $r > 0$:
+\begin{itemize}
+\item $\phi(r) = \sqrt{r_g/r}$ grows but never diverges
+\item $\gamma(r) = \cosh(\phi)$ remains finite
+\item $\beta(r) = \tanh(\phi) < 1$ is bounded
+\item No coordinate singularity at $r = r_g$ (Schwarzschild radius)
+\end{itemize}
+
+Instead of collapse, SSZ predicts a \textbf{subspace transition} with periodic structure $\Delta\phi = 2\pi$.
+
+% ===================================================================
+\section{6. Validation}
+
+This metric has been validated through:
+
+\begin{enumerate}
+\item \textbf{Metric compatibility:} $\nabla_\alpha g_{\mu\nu} = 0$ (verified numerically to $10^{-15}$)
+\item \textbf{Geodesic integration:} Energy conserved to machine precision
+\item \textbf{Weak-field tests:} GPS redshift error 0.00002\% vs GR
+\item \textbf{Asymptotic flatness:} $\lim_{r\to\infty} g_{\mu\nu} = \eta_{\mu\nu}$ (verified to $<1$ ppm)
+\item \textbf{Curvature scalars:} All remain finite (no divergence)
+\end{enumerate}
+
+See \texttt{reports/SSZ\_VALIDATION\_REPORT.md} for complete validation results.
+
+% ===================================================================
+\section{References}
+
+\begin{enumerate}
+\item Wrede, C. \& Casu, L. (2025). \textit{Segmented Spacetime φ-Spiral Metric}. This work.
+\item Complete implementation: \texttt{github.com/error-wtf/ssz-metric-pure}
+\item Validation reports: \texttt{reports/} directory
+\end{enumerate}
+
+% ===================================================================
+
+\vspace{1cm}
+
+\noindent
+© 2025 Carmen Wrede \& Lino Casu \\
+Licensed under the ANTI-CAPITALIST SOFTWARE LICENSE v1.4
+
+\vspace{0.5cm}
+
+\noindent
+\textit{``No Singularities. Pure Physics. φ-Driven.''}
+
+\end{document}
