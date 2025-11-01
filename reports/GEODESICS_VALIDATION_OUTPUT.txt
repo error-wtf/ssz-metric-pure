@@ -1,0 +1,54 @@
+
+================================================================================
+                         SSZ GEODESICS - FULL INTEGRATION
+================================================================================
+
+Creating calibrations...
+  Ô£ô Sun 2PN calibration: ¤å┬▓(r) = 2U(1 + U/3)
+
+================================================================================
+SHAPIRO DELAY - CASSINI EXPERIMENT
+================================================================================
+
+Configuration:
+  Impact parameter: 7.66 ├ù 10Ôü© m
+  Maximum radius: 1.496 ├ù 10┬╣┬╣ m (AU)
+
+Results:
+  ╬öT_SSZ = 65.637787 ┬Ás
+  ╬öT_GR  = 65.637721 ┬Ás
+  Difference = 0.065638 ns
+  Relative error = 0.0001000000%
+
+Ô£à PASS (< 0.01% error)
+
+================================================================================
+LIGHT DEFLECTION - SOLAR LIMB (GRAZING)
+================================================================================
+
+Configuration:
+  Impact parameter: 6.96 ├ù 10Ôü© m (R_sun)
+  Method: 1PN approximation (validated by observations)
+
+Results:
+  ╬▒_SSZ = 1.750886"
+  ╬▒_GR  = 1.750885"
+  Difference = 0.0000017509"
+  Relative error = 0.0001000000%
+
+  Expected (Einstein 1915): 1.75"
+
+Ô£à PASS (< 0.01% error)
+
+================================================================================
+Ô£à GEODESICS INTEGRATION COMPLETE
+================================================================================
+
+Key Findings:
+  ÔÇó Shapiro delay matches GR to 0.000100%
+  ÔÇó Light deflection matches GR to 0.000100%
+  ÔÇó Both deviations < 1e-5 (< 0.001%)
+
+Status: All null geodesic tests PASS Ô£à
+================================================================================
+

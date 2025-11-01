@@ -141,6 +141,27 @@ comparison = calib.compare_to_gr(r=1e8)
 - ΔT ≈ 65.6 µs (Cassini), α ≈ 1.751" (Einstein's prediction)
 - See `geodesics.py` for implementation details
 
+### 📁 Complete Validation Outputs
+
+All validation results are available in the `reports/` directory:
+
+1. **CALIBRATION_2PN_RESULTS.txt** - 2PN calibration comparison (original)
+2. **CALIBRATION_2PN_COMPLETE_OUTPUT.txt** - Complete calibration run (NEW)
+3. **GEODESICS_VALIDATION_OUTPUT.txt** - Null geodesics validation (NEW)
+4. **FINAL_VALIDATION_COMPLETE.md** - Complete validation summary (NEW)
+
+**Quick Access**:
+```bash
+# View all validation outputs
+cat reports/CALIBRATION_2PN_COMPLETE_OUTPUT.txt
+cat reports/GEODESICS_VALIDATION_OUTPUT.txt
+cat reports/FINAL_VALIDATION_COMPLETE.md
+
+# Run validation yourself
+python src/ssz_metric_pure/calibration_2pn.py
+python src/ssz_metric_pure/geodesics.py
+```
+
 ### 📊 Numerical Precision (Pytest Results)
 
 ```
