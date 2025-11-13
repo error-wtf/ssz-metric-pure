@@ -10,6 +10,29 @@
 
 ---
 
+## 🔗 Related SSZ Repositories
+
+This repository is part of the **Segmented Spacetime (SSZ) Research Suite**:
+
+- **📐 [SSZ Metric Pure](https://github.com/error-wtf/ssz-metric-pure)** (this repository)
+  - Complete 4D tensor formulation
+  - Symbolic computation tools (SymPy)
+  - Mathematical foundations & proofs
+
+- **🌌 [Segmented Spacetime Mass Projection - Unified Results](https://github.com/error-wtf/Segmented-Spacetime-Mass-Projection-Unified-Results)**
+  - Comprehensive physical validation (97.9% ESO accuracy)
+  - Black hole tests (PPN, photon sphere, shadow)
+  - Empirical data analysis & statistical tests
+
+- **🌟 [G79 Cygnus Tests](https://github.com/error-wtf/g79-cygnus-tests)**
+  - LBV nebula G79.29+0.46 application
+  - Molecular zone predictions
+  - Temperature inversion validation
+
+**Documentation:** See `01_MATHEMATICAL_FOUNDATIONS.md` through `06_FINDINGS_G79_CYGNUS_TESTS.md` for cross-repository analysis.
+
+---
+
 ## 📖 About This Repository
 
 The **SSZ φ-Spiral Metric** is a complete 4D tensor formulation with:
@@ -510,10 +533,18 @@ Licensed under the ANTI-CAPITALIST SOFTWARE LICENSE v1.4
 
 ## 🔗 Related Documentation
 
-For complete information, see:
+### Repository-Specific Documentation:
 - **[MASTER_README.md](MASTER_README.md)** - Complete overview
 - **[INDEX.md](INDEX.md)** - File navigation
 - **[reports/SSZ_VALIDATION_REPORT.md](reports/SSZ_VALIDATION_REPORT.md)** - Scientific validation
+
+### Cross-Repository Analysis (November 2025):
+- **[01_MATHEMATICAL_FOUNDATIONS.md](01_MATHEMATICAL_FOUNDATIONS.md)** - SSZ mathematical framework
+- **[02_PHYSICS_CONCEPTS.md](02_PHYSICS_CONCEPTS.md)** - Physical interpretation
+- **[03_SCRIPT_ARCHITECTURE.md](03_SCRIPT_ARCHITECTURE.md)** - Implementation architecture
+- **[04_FINDINGS_UNIFIED_RESULTS.md](04_FINDINGS_UNIFIED_RESULTS.md)** - Mass Projection validation
+- **[05_FINDINGS_SSZ_METRIC_PURE.md](05_FINDINGS_SSZ_METRIC_PURE.md)** - Metric Pure results
+- **[06_FINDINGS_G79_CYGNUS_TESTS.md](06_FINDINGS_G79_CYGNUS_TESTS.md)** - G79 nebula analysis
 
 ---
 
