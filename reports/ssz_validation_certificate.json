@@ -1,7 +1,7 @@
 {
   "metric": "φ-Spiral SSZ (Calibrated)",
   "calibration": "φ²_G = 2GM/(rc²)",
-  "timestamp": "2025-11-01T12:55:51.499767",
+  "timestamp": "2025-11-19T22:48:53.356201",
   "bodies_tested": [
     "Earth",
     "Sun"
