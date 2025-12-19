@@ -69,7 +69,7 @@ Time is not a coordinate, but a derived quantity!
 **Evidence:**
 ```
 Ξ_max < 1.0  (numerically verified)
-D(r_s) = 0.667  (finite at horizon)
+D(r_s) = 0.555-0.667  (finite at horizon, depends on Ξ-formulation)
 R(r=0) = 0.503 R₀  (finite at center)
 ```
 
@@ -208,6 +208,7 @@ Properties:
 - Continuous transition
 - No crossover at α=1.0
 - SSZ corrections everywhere
+- At horizon: D(r_s) = 2/(2+α) ≈ 0.667 (α=1)
 ```
 
 **Exponential (universal):**
@@ -218,9 +219,11 @@ Properties:
 - Universal crossover at r* = 1.387 r_s
 - Mass-independent!
 - φ-based natural scale
+- At horizon: D(r_s) = 1/(1+0.802) = 0.555
 ```
 
-**Both valid!** Different Ξ-profiles, same physics.
+**Both valid!** Different Ξ-profiles, same qualitative physics.
+**Note:** The horizon value (0.555 vs 0.667) depends on which formulation is used.
 
 ---
 
@@ -262,10 +265,11 @@ Mathematically:
 
 **Segment resonances:**
 ```
-Segments "vibrate" with frequency ω(r) = φ/(1+Ξ(r))
+Segments "vibrate" with frequency:
+ω(r) = ω₀ · φ/(1+Ξ(r))   where ω₀ = reference frequency
 
 Time interval between "ticks":
-Δt(r) = 1/ω(r) = (1+Ξ(r))/φ
+Δt(r) = 1/ω(r) = (1+Ξ(r))/(ω₀·φ)
 ```
 
 **Physically:**
@@ -289,10 +293,10 @@ Chaos:  λ_A > 1/K²  (time breaks down!)
 ```
 
 **In the chaos regime:**
-- Negative time intervals observed! (Δt < 0)
+- Model yields Δt < 0 in effective tick-mapping (loss of coherence)
 - Chaos amplification: 5.3×
 - Variance increase: σ² × 5.3
-- Time loses coherence
+- Time loses physical meaning
 
 **Implication:** Time is not fundamentally guaranteed, but conditioned by stability!
 
@@ -324,7 +328,7 @@ Chaos:  λ_A > 1/K²  (time breaks down!)
 - Information paradox
 
 **SSZ:**
-- Finite time dilation: D(r_s) ≈ 0.667
+- Finite time dilation: D(r_s) ≈ 0.555 (exponential Ξ) or 0.667 (hyperbolic Ξ)
 - Finite curvature: R(0) = 0.503 R₀
 - No information loss
 
@@ -370,7 +374,9 @@ EXACT! For ALL masses!
 Ξ saturates → all quantities finite
 
 At the horizon (r = r_s):
-D = 2/(2+α) ≈ 0.667  (time continues!)
+D = 2/(2+α) ≈ 0.667 (hyperbolic Ξ, α=1)
+D = 1/(1+0.802) = 0.555 (exponential Ξ)
+Both finite! (time continues!)
 
 At the center (r = 0):
 R = 0.503 R₀  (finite curvature!)
@@ -666,10 +672,10 @@ D_SSZ = 1/(1+Ξ) = Effective time flow rate
 **Mechanism:**
 ```
 Segments "vibrate" with frequency:
-ω(r) = φ / (1 + Ξ(r))
+ω(r) = ω₀ · φ / (1 + Ξ(r))   where ω₀ = reference frequency [1/s]
 
 Time interval between "ticks":
-Δt(r) = 1/ω(r) = (1 + Ξ(r)) / φ
+Δt(r) = 1/ω(r) = (1 + Ξ(r)) / (ω₀·φ)   [seconds]
 ```
 
 **Physical Interpretation:**

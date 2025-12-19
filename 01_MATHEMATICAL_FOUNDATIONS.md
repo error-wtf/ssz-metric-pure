@@ -113,7 +113,7 @@ D_SSZ(r) = √(1 - r_s/r) · √(1 - Ξ(r))
 
 # At the horizon (r = r_s):
 D_GR(r_s) = 0  (Singularity!)
-D_SSZ(r_s) = √(1 - Ξ_max) ≈ 0.667  (finite!)
+D_SSZ(r_s) = 0.555 (exponential Ξ) or 0.667 (hyperbolic Ξ)  # FINITE!
 ```
 
 ### 4.2 Time Emergence from Segments
@@ -298,7 +298,7 @@ E_final/E₀ ≈ 10⁻³⁸  (extreme dissipation!)
 Ξ_max = 0.802 < 1.0
 
 R(r=0) = 0.503 R₀  (finite curvature at center!)
-D(r_s) = 2/(2+α) ≈ 0.667  (finite at horizon!)
+D(r_s) = 0.555-0.667  (finite at horizon, depends on Ξ-formulation)
 ```
 
 ### 10.3 Stability Threshold
