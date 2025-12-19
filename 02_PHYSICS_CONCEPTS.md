@@ -213,7 +213,10 @@ Properties:
 
 **Exponential (saturation form, strong-field r < 100r_s only):**
 ```
-Ξ(r) = 1 - e^(-φr/r_s)     [Ξ_max = 1 implicit]
+Ξ(r) = 1 - e^(-φr/r_s)     [Ξ_max = 1 as normalization]
+
+Note: Ξ_max = 1 is a normalization choice (asymptote never reached in practice), 
+not a claim that spacetime becomes fully discrete.
 
 Properties:
 - Ξ(0) = 0 (singularity-free!)
@@ -223,8 +226,13 @@ Properties:
 - For r > 100r_s: use weak-field Ξ = r_s/(2r) → 0 as r → ∞
 ```
 
-**Matching Note:** 
-The exponential profile is a local strong-field model. The hard switch at r = 100r_s is **schematic only**; a proper implementation requires a smooth stitching function (e.g., quintic Hermite blend in [90, 110] r_s) for C²-continuity.
+**Note on profiles / development history:** This document was developed in parallel 
+with the validation repository. As a result, multiple Ξ(r) parameterizations are shown 
+side-by-side (hyperbolic / exponential / logistic) to document ideas and test-mappings. 
+A physically deployed SSZ metric uses a **single chosen global profile** (or a smooth 
+stitched profile), while the "switch to weak-field at r > 100r_s" is a **schematic 
+placeholder** used during testing. For formal presentation, Ξ(r) must be defined as a 
+single global function or matched C¹/C²-smoothly across regimes.
 
 **Important:** 
 The two Ξ-formulations serve **different purposes**:
