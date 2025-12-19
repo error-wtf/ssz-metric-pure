@@ -432,9 +432,9 @@ E_final/E₀ ≈ 10⁻³⁸  (practically zero!)
 
 **BH shadow:**
 ```
-r_shadow(SSZ) ≈ 1.02 × r_shadow(GR)
+r_shadow(SSZ) ≈ 1.06 × r_shadow(GR)
 
-~2% larger
+~6% larger (per Unified-Results validation)
 Testable with future EHT
 ```
 
@@ -485,9 +485,9 @@ SSZ: Time runs SLOWER than GR predicts!
 
 **Pulsar periods:**
 ```
-P_obs(SSZ) ≈ 0.86 × P_GR
+P_obs(SSZ) ≈ 1.14 × P_GR
 
-14% longer appearing periods!
+14% longer appearing periods (slower time → stretched signals)
 ```
 
 **X-ray timing:**
@@ -953,7 +953,7 @@ Future test: CMB-S4 precision
 M87* Black Hole:
 - Shadow size: 42 ± 3 μas
 - GR prediction: 42 μas
-- SSZ prediction: 41.5 μas (-1.3%)
+- SSZ prediction: ~44.5 μas (+6%, per 1.06× factor)
 
 Current precision insufficient to distinguish.
 Future: ngEHT may achieve required precision.
@@ -1016,7 +1016,7 @@ Future: More sensitive to SSZ effects
 ├── Segment density: Ξ(r) = 1 - exp(-φ·r/r_s)
 ├── Time emergence: Δt = (1+Ξ)/φ
 ├── Universal crossover: r* ≈ 1.387 r_s (φ-linked)
-├── Saturation limit: Ξ_max = 1 - exp(-φ) ≈ 0.802
+├── Horizon calibration: Ξ(r_s) = 1 - exp(-φ) ≈ 0.802
 └── GW frequencies: f_QNM × φ (predicted)
 ```
 
