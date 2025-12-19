@@ -211,18 +211,24 @@ Properties:
 - At horizon: D(r_s) = 2/(2+α) ≈ 0.667 (α=1)
 ```
 
-**Exponential (universal):**
+**Exponential (saturation form):**
 ```
 Ξ(r) = Ξ_max(1 - e^(-φr/r_s))
 
 Properties:
+- Ξ(0) = 0, Ξ(∞) → Ξ_max (saturation)
 - Universal crossover at r* = 1.387 r_s
 - Mass-independent!
-- φ-based natural scale
 - At horizon: D(r_s) = 1/(1+0.802) = 0.555
 ```
 
-**Both valid!** Different Ξ-profiles, same qualitative physics.
+**Important:** The two Ξ-formulations have **different radial behavior**:
+- Hyperbolic: Ξ increases toward center (∝ r_s/r)
+- Exponential: Ξ increases outward but **saturates** (prevents divergence)
+
+The exponential form is designed for **singularity avoidance** (Ξ→0 as r→0), 
+while the hyperbolic form follows the weak-field intuition (more segments near mass).
+
 **Note:** The horizon value (0.555 vs 0.667) depends on which formulation is used.
 
 ---
@@ -249,12 +255,12 @@ Mathematically:
 
 ### 4.1 Time is not a coordinate
 
-**Standard physics (wrong!):**
-- Time t is a fundamental coordinate
+**Standard approach:**
+- Time t is treated as a fundamental coordinate
 - Part of (t, x, y, z) spacetime structure
-- "Just exists"
+- Assumed to "just exist"
 
-**SSZ (correct!):**
+**SSZ approach:**
 - Time emerges from segment resonances
 - Δt = counting discrete state transitions
 - Like temperature in thermodynamics (emergent quantity!)
@@ -311,12 +317,12 @@ Chaos:  λ_A > 1/K²  (time breaks down!)
 - Post-Newtonian corrections
 - Well tested (solar system)
 
-**SSZ:**
+**SSZ (in weak field):**
 - Matches GR EXACTLY (β = γ = 1)
 - PPN parameters to machine precision
-- No measurable deviation
+- No measurable deviation **in weak-field regime**
 
-**Interpretation:** GR is the valid limit of SSZ!
+**Interpretation:** GR is the valid weak-field limit of SSZ!
 
 ---
 
@@ -500,11 +506,11 @@ Measurable with NICER (data already available!)
 
 **Observation:** Velocity structure at domain boundary
 
-**GR interpretation (wrong):**
+**Standard GR interpretation:**
 - Kinetic effect (Doppler)
 - Classical expansion
 
-**SSZ interpretation (correct):**
+**SSZ interpretation:**
 ```
 z_temporal = 1 - γ_seg ≈ 0.12  (intrinsically temporal!)
 
