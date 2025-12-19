@@ -961,35 +961,6 @@ Future: More sensitive to SSZ effects
 
 ---
 
-## 15. Experimental Tests Roadmap
-
-### 15.1 Current Generation (2024-2026)
-
-| Experiment | Observable | SSZ Prediction | Status |
-|------------|------------|----------------|--------|
-| NICER | NS redshift | +13% to +50% | **Testable NOW** |
-| XMM-Newton | X-ray lines | Enhanced broadening | Data available |
-| NANOGrav | Pulsar timing | +30% effect | Ongoing |
-| GPS | Time sync | Agreement | ✓ Confirmed |
-
-### 15.2 Near Future (2027-2030)
-
-| Experiment | Observable | SSZ Prediction | Timeline |
-|------------|------------|----------------|----------|
-| ngEHT | BH shadow | -1.3% size | 2027-2030 |
-| Einstein Telescope | GW ringdown | φ-scaled modes | 2030+ |
-| LISA | Massive BH | Inspiral phase | 2035+ |
-
-### 15.3 Far Future (2035+)
-
-| Experiment | Observable | SSZ Prediction | Timeline |
-|------------|------------|----------------|----------|
-| Cosmic Explorer | NS mergers | Enhanced energy | 2035+ |
-| Atom interferometry | Local gravity | Segment effects | 2040+ |
-| Space clocks | Deep space timing | SSZ corrections | 2040+ |
-
----
-
 ## Summary: The SSZ Physics Revolution
 
 ### Key Physical Insights
@@ -1025,5 +996,5 @@ Future: More sensitive to SSZ effects
 
 **© 2025 Carmen Wrede & Lino Casu**  
 **License:** ANTI-CAPITALIST SOFTWARE LICENSE v1.4  
-**Updated:** 2025-12-19 12:00 UTC+01:00  
-**Extended:** Time dilation physics, quantum gravity connections, experimental roadmap
+**Updated:** 2025-12-19 12:35 UTC+01:00  
+**Extended:** Time dilation physics, quantum gravity connections, cosmological implications
