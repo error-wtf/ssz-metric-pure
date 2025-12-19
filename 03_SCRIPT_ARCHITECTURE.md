@@ -1,74 +1,74 @@
 # SSZ Script Architecture - Complete Code Structure Documentation
 
-**Dokumentation aller Script-Architekturen und Code-Strukturen**  
-**Datum:** 2025-11-13  
-**Fokus:** Module-Design, Datenflüsse, Test-Systeme
+**Documentation of all script architectures and code structures**  
+**Date:** 2025-11-13  
+**Focus:** Module design, data flows, test systems
 
 ---
 
-## 1. Repository-Struktur Overview
+## 1. Repository Structure Overview
 
-### 1.1 Haupt-Repository: Segmented-Spacetime-Mass-Projection-Unified-Results
+### 1.1 Main Repository: Segmented-Spacetime-Mass-Projection-Unified-Results
 
 ```
 Segmented-Spacetime-Mass-Projection-Unified-Results/
-├── core/                      # Kern-Module (10 Dateien)
+├── core/                      # Core modules (10 files)
 │   ├── __init__.py
-│   ├── compare.py            # GR vs SSZ Vergleiche
+│   ├── compare.py            # GR vs SSZ comparisons
 │   ├── inference.py          # Bayesian Inference
-│   ├── lensing.py            # Gravitationslinsen
-│   ├── predict.py            # Vorhersage-Engine
-│   ├── stability.py          # Stabilitäts-Analysen
-│   ├── stats.py              # Erweiterte Statistiken
-│   ├── sweep.py              # Parameter-Sweeps
-│   ├── uncertainty.py        # Unsicherheits-Quantifizierung
-│   └── xval.py               # Cross-Validation
+│   ├── lensing.py            # Gravitational lensing
+│   ├── predict.py            # Prediction engine
+│   ├── stability.py          # Stability analyses
+│   ├── stats.py              # Extended statistics
+│   ├── sweep.py              # Parameter sweeps
+│   ├── uncertainty.py        # Uncertainty quantification
+│   └── xval.py               # Cross-validation
 │
-├── scripts/                   # Analyse-Scripts (112 Dateien!)
-│   ├── tests/                # Physics Tests (15+ Tests)
-│   ├── cosmology/            # Kosmologische Analysen
-│   ├── visualization/        # Plot-Generatoren
-│   └── validation/           # Validierungs-Pipelines
+├── scripts/                   # Analysis scripts (112 files!)
+│   ├── tests/                # Physics tests (15+ tests)
+│   ├── cosmology/            # Cosmological analyses
+│   ├── visualization/        # Plot generators
+│   └── validation/           # Validation pipelines
 │
-├── tests/                     # Pytest Test-Suite
-│   ├── cosmos/               # Kosmologie-Tests
-│   └── test_segwave_*.py     # SegWave Tests
+├── tests/                     # Pytest test suite
+│   ├── cosmos/               # Cosmology tests
+│   └── test_segwave_*.py     # SegWave tests
 │
-├── data/                      # Datensätze
-│   ├── real_data_full.csv    # 427 Observationen, 117 Quellen
-│   ├── gaia/                 # GAIA DR3 Samples
+├── data/                      # Datasets
+│   ├── real_data_full.csv    # 427 observations, 117 sources
+│   ├── gaia/                 # GAIA DR3 samples
 │   └── planck/               # CMB Power Spectra (2 GB)
 │
-├── papers/                    # Theoretische Papers
-│   └── validation/           # 19 Validierungs-Dokumente
+├── papers/                    # Theoretical papers
+│   └── validation/           # 19 validation documents
 │
-└── reports/                   # Generierte Berichte
-    └── figures/              # Plots & Visualisierungen
+└── reports/                   # Generated reports
+    └── figures/              # Plots & visualizations
 ```
 
 ---
 
-## 2. Kern-Script-Architektur
+## 2. Core Script Architecture
 
 ### 2.1 segspace_all_in_one_extended.py - Main Analysis Engine
 
-**Zweck:** Vollständige Paired-Test-Analyse SSZ vs GR×SR
+**Purpose:** Complete paired-test analysis SSZ vs GR×SR
 
-**Architektur:**
+**Architecture:**
 ```python
-# 780 Zeilen, modular strukturiert
+# 780 lines, modularly structured
 
 ┌─────────────────────────────────────┐
 │  SAFETY PREFLIGHT                   │
-│  - Verzeichnis-Setup                │
-│  - Determinismus (Seed 137)         │
+│  - Directory setup                  │
+│  - Determinism (Seed 137)           │
 │  - Decimal Precision (200 digits)   │
 └─────────────────────────────────────┘
          ↓
 ┌─────────────────────────────────────┐
 │  PHYSICAL CONSTANTS                 │
 │  - G, c, φ, α_fs, h, M_☉           │
-│  - Δ(M) Parameter (A, α, B)         │
+│  - Δ(M) Parameters (A, α, B)        │
 └─────────────────────────────────────┘
          ↓
 ┌─────────────────────────────────────┐
@@ -112,7 +112,7 @@ Segmented-Spacetime-Mass-Projection-Unified-Results/
 ```
 
 **Key Features:**
-- Decimal arithmetic für extreme Präzision
+- Decimal arithmetic for extreme precision
 - Deterministic seeding (reproducibility)
 - Multiple redshift prediction modes (hint, deltaM, hybrid, geodesic)
 - Bootstrap confidence intervals
@@ -133,9 +133,9 @@ Segmented-Spacetime-Mass-Projection-Unified-Results/
 
 ### 2.2 perfect_paired_test.py - ESO Validation
 
-**Zweck:** 97.9% Durchbruch-Validierung mit ESO-Daten
+**Purpose:** 97.9% breakthrough validation with ESO data
 
-**Architektur:**
+**Architecture:**
 ```python
 # Simplified, focused on clean dataset
 
@@ -182,16 +182,16 @@ p-value: 0.0000
 
 ### 2.3 derive_effective_stress_energy.py - Einstein Tensor Computation
 
-**Zweck:** Reverse-engineer T_μν von SSZ-Metrik
+**Purpose:** Reverse-engineer T_μν from SSZ metric
 
-**Architektur:**
+**Architecture:**
 ```python
-# 193 Zeilen, SymPy-basiert
+# 193 lines, SymPy-based
 
 ┌─────────────────────────────────────┐
 │  SYMBOLIC SETUP                     │
-│  - Koordinaten: (t, r, θ, φ)        │
-│  - Metrik: g_μν diagonal            │
+│  - Coordinates: (t, r, θ, φ)        │
+│  - Metric: g_μν diagonal            │
 │  - A(U) = 1 - 2U + 2U² + ε₃U³       │
 │  - B(r) = 1/A(r)                    │
 └─────────────────────────────────────┘
@@ -249,9 +249,9 @@ python derive_effective_stress_energy.py \
 
 ---
 
-## 3. Test-System-Architektur
+## 3. Test System Architecture
 
-### 3.1 Test-Suite-Hierarchie
+### 3.1 Test Suite Hierarchy
 
 ```
 run_all_validations.py  (Master Runner)
@@ -283,14 +283,14 @@ run_all_validations.py  (Master Runner)
 
 ### 3.2 Physics Test Template
 
-**Standard-Format (alle 35 Physics Tests):**
+**Standard Format (all 35 Physics Tests):**
 
 ```python
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 import sys
 import io
-# UTF-8 Windows-Fix
+# UTF-8 Windows fix
 if sys.platform == 'win32':
     sys.stdout = io.TextIOWrapper(
         sys.stdout.buffer, 
@@ -348,7 +348,7 @@ if __name__ == '__main__':
 
 ### 3.3 Silent Technical Tests (23 Tests)
 
-**Laufen im Hintergrund, zeigen nur PASSED:**
+**Run in background, show only PASSED:**
 
 ```python
 # test_utf8_encoding.py
@@ -378,7 +378,7 @@ def test_markdown_printing():
 
 ### 3.4 run_full_suite.py - Logging System
 
-**Architektur:**
+**Architecture:**
 
 ```python
 class TeeOutput:
@@ -409,7 +409,7 @@ with open("reports/summary-output.md", "w") as f:
     f.write(output_log.getvalue())
 ```
 
-**Cache Clearing (KRITISCH!):**
+**Cache Clearing (CRITICAL!):**
 
 ```python
 # BEFORE any tests!
@@ -434,11 +434,11 @@ for pyc_pattern in ['*.pyc', '*.pyo']:
             pass
 ```
 
-**Warum KRITISCH?** Corrupted pytest cache → falsche Failures!
+**Why CRITICAL?** Corrupted pytest cache → false failures!
 
 ---
 
-## 4. Datenfluss-Architekturen
+## 4. Data Flow Architectures
 
 ### 4.1 ESO Data Acquisition Pipeline
 
@@ -498,7 +498,7 @@ Validate: |M_reconstructed - M_input| < ε
 ✓ Mass validation passed!
 ```
 
-**Result:** Perfekte Rekonstruktion über 12 Größenordnungen!
+**Result:** Perfect reconstruction across 12 orders of magnitude!
 
 ---
 
@@ -546,9 +546,9 @@ Generate Plots:
 
 ---
 
-## 5. Modularität & Wiederverwendung
+## 5. Modularity & Reusability
 
-### 5.1 core/ Module
+### 5.1 core/ Modules
 
 **core/predict.py:**
 ```python
@@ -576,11 +576,11 @@ def predict_redshift(M, r, v_tot, v_los, mode='hybrid'):
     # ... other modes
 ```
 
-**Verwendet von:**
+**Used by:**
 - segspace_all_in_one_extended.py
 - perfect_paired_test.py
 - run_ssz_validation.py
-- Alle Validierungs-Pipelines
+- All validation pipelines
 
 ---
 
@@ -619,10 +619,10 @@ def binomial_sign_test(wins, total):
     return binom.cdf(total - wins, total, 0.5)
 ```
 
-**Verwendet von:**
-- Alle Paired Tests
-- Stratified Analysis
-- Validierungs-Pipelines
+**Used by:**
+- All paired tests
+- Stratified analysis
+- Validation pipelines
 
 ---
 
@@ -657,34 +657,34 @@ numba>=0.54.0  (JIT compilation)
 if sys.platform == 'win32':
     os.environ['PYTHONIOENCODING'] = 'utf-8:replace'
     
-# Linux/Mac (meist schon UTF-8)
+# Linux/Mac (usually already UTF-8)
 else:
     sys.stdout.reconfigure(encoding='utf-8')
 ```
 
 ---
 
-## 6. Error Handling & Robustheit
+## 6. Error Handling & Robustness
 
 ### 6.1 Safe Math Operations
 
 ```python
 def safe_divide(a, b, default=float('nan')):
-    """Verhindert Division durch Null"""
+    """Prevents division by zero"""
     try:
         return a / b if b != 0 else default
     except:
         return default
 
 def finite_check(x):
-    """Prüft auf NaN/Inf"""
+    """Checks for NaN/Inf"""
     try:
         return math.isfinite(float(x))
     except:
         return False
 
 def safe_sqrt(x):
-    """Verhindert sqrt von negativen Zahlen"""
+    """Prevents sqrt of negative numbers"""
     return math.sqrt(max(0, x))
 ```
 
@@ -694,7 +694,7 @@ def safe_sqrt(x):
 
 ```python
 def validate_mass(M):
-    """Prüft Mass-Plausibilität"""
+    """Checks mass plausibility"""
     if M is None or M <= 0:
         raise ValueError(f"Invalid mass: {M}")
     if M < 1e20:  # < 0.00001 M_☉
@@ -702,7 +702,7 @@ def validate_mass(M):
     return M
 
 def validate_radius(r, r_s):
-    """Prüft Radius > Schwarzschild radius"""
+    """Checks radius > Schwarzschild radius"""
     if r <= r_s:
         raise ValueError(f"r={r} <= r_s={r_s}, invalid!")
     return r
@@ -714,7 +714,7 @@ def validate_radius(r, r_s):
 
 ```python
 def newton_raphson_monitored(f, df, x0, max_iter=200, tol=1e-120):
-    """Newton-Raphson mit Logging"""
+    """Newton-Raphson with logging"""
     x = x0
     for i in range(max_iter):
         y = f(x)
@@ -766,10 +766,10 @@ def to_decimal(x):
         return D(0)
 ```
 
-**Warum Decimal?**
+**Why Decimal?**
 - float: ~15 digits precision
 - Decimal: 200+ digits precision
-- Kritisch für Mass Inversion (12 Größenordnungen!)
+- Critical for mass inversion (12 orders of magnitude!)
 
 ---
 
@@ -790,11 +790,11 @@ def delta_percent_cached(M_str, Lmin_str, Lmax_str):
 result = delta_percent_cached(str(M), str(Lmin), str(Lmax))
 ```
 
-**Speedup:** 10-100× für wiederholte Berechnungen
+**Speedup:** 10-100× for repeated calculations
 
 ---
 
-### 7.3 Vectorization (wo möglich)
+### 7.3 Vectorization (where possible)
 
 ```python
 # SLOW: Loop
@@ -809,41 +809,41 @@ z_seg = np.vectorize(predict_redshift)(
 )
 ```
 
-**Aber:** Vorsicht mit Decimal! NumPy arbeitet mit float64.
+**But:** Careful with Decimal! NumPy works with float64.
 
 ---
 
-## 8. Zusammenfassung: Best Practices
+## 8. Summary: Best Practices
 
 ### 8.1 Code Organization
 
-✅ **Modular:** core/ Module für Wiederverwendung  
-✅ **Hierarchisch:** scripts/ nach Funktionalität organisiert  
-✅ **Dokumentiert:** Docstrings für alle Funktionen  
-✅ **Tested:** 161 automatisierte Tests  
+✅ **Modular:** core/ modules for reusability  
+✅ **Hierarchical:** scripts/ organized by functionality  
+✅ **Documented:** Docstrings for all functions  
+✅ **Tested:** 161 automated tests  
 
 ### 8.2 Data Flow
 
 ✅ **Deterministic:** Fixed seeds, reproducible  
 ✅ **Validated:** Input checks, error handling  
-✅ **Logged:** Alle Schritte dokumentiert  
-✅ **Cached:** Intermediate results gespeichert  
+✅ **Logged:** All steps documented  
+✅ **Cached:** Intermediate results stored  
 
 ### 8.3 Testing
 
 ✅ **Comprehensive:** 116 + 45 Tests  
 ✅ **Stratified:** Physics (verbose) + Technical (silent)  
 ✅ **Automated:** run_all_validations.py  
-✅ **Continuous:** Cache-clearing VOR Tests  
+✅ **Continuous:** Cache clearing BEFORE tests  
 
 ### 8.4 Platform Support
 
 ✅ **Cross-Platform:** Windows, Linux, macOS, WSL  
-✅ **UTF-8 Safe:** Explizites encoding überall  
-✅ **Subprocess-Safe:** stdout/stderr explizit gebunden  
-✅ **Colab-Ready:** Zero-install Notebooks  
+✅ **UTF-8 Safe:** Explicit encoding everywhere  
+✅ **Subprocess-Safe:** stdout/stderr explicitly bound  
+✅ **Colab-Ready:** Zero-install notebooks  
 
 ---
 
 **© 2025 Carmen Wrede & Lino Casu**  
-**Lizenz:** ANTI-CAPITALIST SOFTWARE LICENSE v1.4
+**License:** ANTI-CAPITALIST SOFTWARE LICENSE v1.4

@@ -1,42 +1,42 @@
 # Findings: ssz-metric-pure
 
-**Theoretisches Foundation Repository - Pure SSZ Metrik Formulation**  
+**Theoretical Foundation Repository - Pure SSZ Metric Formulation**  
 **URL:** https://github.com/error-wtf/ssz-metric-pure  
-**Datum:** 2025-11-13
+**Date:** 2025-11-13
 
 ---
 
 ## 1. Repository Overview
 
-**Zweck:** Komplette singularitätsfreie Schwarzes-Loch-Lösung mit φ-basierter geometrischer Struktur - **NUR SSZ**, keine Vergleiche!
+**Purpose:** Complete singularity-free black hole solution with φ-based geometric structure - **SSZ ONLY**, no comparisons!
 
 **Version:** v2.1.0 (November 2025)
 
-**Fokus:**
-- LaTeX paper-ready Dokumentation
+**Focus:**
+- LaTeX paper-ready documentation
 - Python symbolic & numerical validation
 - Complete 4D tensor formulation
-- 2PN calibration (neu in v2.1.0)
+- 2PN calibration (new in v2.1.0)
 
 ---
 
-## 2. Die SSZ φ-Spiral Metrik
+## 2. The SSZ φ-Spiral Metric
 
-### 2.1 Diagonal (T,r) Form - EMPFOHLEN
+### 2.1 Diagonal (T,r) Form - RECOMMENDED
 
 ```
 ds² = -(c²/γ²(r)) dT² + γ²(r) dr² + r² dΩ²
 
-Wo:
+Where:
 γ(r) = cosh(φ_G(r))
 β(r) = tanh(φ_G(r))
 ```
 
-**2PN Calibration (v2.1.0 - NEU & EMPFOHLEN):**
+**2PN Calibration (v2.1.0 - NEW & RECOMMENDED):**
 ```
 φ²_G(r) = 2U(1 + U/3)
 
-Wo: U = GM/(rc²)
+Where: U = GM/(rc²)
 ```
 
 **1PN Calibration (v2.0.0 - Legacy):**
@@ -44,11 +44,11 @@ Wo: U = GM/(rc²)
 φ²_G(r) = 2U
 ```
 
-**Warum 2PN besser?**
-- Matcht GR bis O(U²) statt nur O(U)
-- Schnellere Konvergenz
-- Präzisere Vorhersagen
-- Rückwärtskompatibel
+**Why 2PN is better:**
+- Matches GR up to O(U²) instead of just O(U)
+- Faster convergence
+- More precise predictions
+- Backward compatible
 
 ---
 
@@ -61,15 +61,15 @@ Transformation:
 dT = dt - (β(r)γ²(r)/c) dr
 ```
 
-**Beide Formen sind physikalisch äquivalent** (bewiesen via covariant transformation!)
+**Both forms are physically equivalent** (proven via covariant transformation!)
 
 ---
 
-## 3. Key Features - Singularitätsfreiheit
+## 3. Key Features - Singularity Freedom
 
-### 3.1 Perfekter Weak-Field Match
+### 3.1 Perfect Weak-Field Match
 
-**Im Limit r → ∞:**
+**In the limit r → ∞:**
 ```
 γ(r) → 1
 β(r) → 0
@@ -77,67 +77,67 @@ dT = dt - (β(r)γ²(r)/c) dr
 ds² → -c²dt² + dr² + r²dΩ²  (Minkowski!)
 ```
 
-**Für große r:**
+**For large r:**
 ```
 φ²_G(r) = 2U(1 + U/3) ≈ 2U + 2U²/3
 
-Matcht Schwarzschild bis O(U²):
+Matches Schwarzschild up to O(U²):
 g_tt = -(1 - 2U + 2U² + ...)
 ```
 
-**PPN-Parameter:**
+**PPN Parameters:**
 ```
 β_PPN = 1
 γ_PPN = 1
 
-GR-equivalent im Weak-Field!
+GR-equivalent in weak-field!
 ```
 
 ---
 
-### 3.2 Singularitätsfreiheit
+### 3.2 Singularity Freedom
 
-**Keine Field Equations nötig!**
+**No field equations needed!**
 
-Das ist der revolutionäre Aspekt:
-- Metrik wird DIREKT aus φ-Geometrie konstruiert
-- KEINE Einstein-Feldgleichungen lösen
-- KEINE Stress-Energy-Tensor assumption
+This is the revolutionary aspect:
+- Metric is constructed DIRECTLY from φ-geometry
+- NO Einstein field equations to solve
+- NO stress-energy tensor assumption
 
-**Stattdessen:**
-- φ-Spiral-Geometrie → self-consistent metric
-- Emergente Raumzeit-Struktur
-- Natürlich singularitätsfrei
+**Instead:**
+- φ-Spiral geometry → self-consistent metric
+- Emergent spacetime structure
+- Naturally singularity-free
 
-**Beweis:**
+**Proof:**
 ```
-γ(r) = cosh(φ_G(r)) ≥ 1  für alle r
+γ(r) = cosh(φ_G(r)) ≥ 1  for all r
 
-γ divergiert NICHT bei r → 0!
-β = tanh(φ_G) < 1  für alle r
+γ does NOT diverge at r → 0!
+β = tanh(φ_G) < 1  for all r
 
-Keine Horizont-Singularität!
+No horizon singularity!
 ```
 
 ---
 
 ### 3.3 Horizon Behavior
 
-**Bei r = r_s:**
+**At r = r_s:**
 ```
-GR: g_tt → 0  (Zeit stoppt!)
-SSZ: g_tt ≠ 0  (Zeit läuft weiter!)
+GR: g_tt → 0  (Time stops!)
+SSZ: g_tt ≠ 0  (Time continues!)
 
 Finite time dilation:
-D(r_s) ≈ 2/(2+α) ≈ 0.667  (für α = 1)
+D(r_s) ≈ 2/(2+α) ≈ 0.667  (for α = 1)
 ```
 
-**Im Zentrum r → 0:**
+**At the center r → 0:**
 ```
-GR: Unendliche Krümmung
-SSZ: Endliche Krümmung
+GR: Infinite curvature
+SSZ: Finite curvature
 
-Durch φ_G Sättigung
+Through φ_G saturation
 ```
 
 ---
@@ -159,7 +159,7 @@ python examples/symbolic_full_derivation.py \
 - Einstein tensor G_μν
 - LaTeX formatted for paper
 
-**Zeit:** ~2-5 minutes (SymPy computation)
+**Time:** ~2-5 minutes (SymPy computation)
 
 ---
 
@@ -215,7 +215,7 @@ tex/
 └── SSZ_Christoffel_Symbols.tex       # Γ^α_βγ
 ```
 
-**Verwendung:** Direct copy-paste in scientific papers!
+**Usage:** Direct copy-paste into scientific papers!
 
 ---
 
@@ -261,7 +261,7 @@ reports/
 
 ## 6. 10-Point Validation (v2.1.0)
 
-### 6.1 Alle Tests Bestanden ✅
+### 6.1 All Tests Passed ✅
 
 **Validation Suite:**
 1. ✅ **Metric Signature** - (-,+,+,+) preserved
@@ -399,7 +399,7 @@ python examples/generate_complete_report.py \
 - LaTeX summary
 - JSON data
 
-**Zeit:** ~30 seconds
+**Time:** ~30 seconds
 
 ---
 
@@ -476,7 +476,7 @@ pip install -r requirements.txt
 pip install -e .
 ```
 
-**Zeit:** ~2 minutes
+**Time:** ~2 minutes
 
 ---
 
@@ -724,20 +724,20 @@ make html
 
 ---
 
-## 15. Zusammenfassung: Warum ssz-metric-pure fundamental ist
+## 15. Summary: Why ssz-metric-pure is Fundamental
 
-1. **Pure Theory** - Keine Vergleiche, nur SSZ
-2. **Paper-Ready** - LaTeX direkt nutzbar
+1. **Pure Theory** - No comparisons, SSZ only
+2. **Paper-Ready** - LaTeX directly usable
 3. **Mathematically Rigorous** - Symbolic validation
-4. **Numerically Precise** - 1e-50 mit mpmath
+4. **Numerically Precise** - 1e-50 with mpmath
 5. **2PN Calibration** - GR match O(U²)
-6. **Singularity-Free** - Bewiesen überall
-7. **Complete Documentation** - Alles enthalten
-8. **Ecosystem Hub** - Verbindet alle SSZ-Repos
+6. **Singularity-Free** - Proven everywhere
+7. **Complete Documentation** - Everything included
+8. **Ecosystem Hub** - Connects all SSZ repos
 
-**Das ist die theoretische Foundation auf der alles andere aufbaut!**
+**This is the theoretical foundation on which everything else is built!**
 
 ---
 
 **© 2025 Carmen Wrede & Lino Casu**  
-**Lizenz:** ANTI-CAPITALIST SOFTWARE LICENSE v1.4
+**License:** ANTI-CAPITALIST SOFTWARE LICENSE v1.4

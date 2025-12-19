@@ -2,79 +2,79 @@
 
 **Astrophysical Validation Repository - G79.29+0.46 LBV Nebula**  
 **URL:** https://github.com/error-wtf/g79-cygnus-tests  
-**Datum:** 2025-11-13
+**Date:** 2025-11-13
 
 ---
 
 ## 1. Repository Overview
 
-**Zweck:** Quantitative Validierung der Segmented Spacetime Physik im LBV-Nebel G79.29+0.46
+**Purpose:** Quantitative validation of Segmented Spacetime physics in the LBV nebula G79.29+0.46
 
-**Fokus:**
-- Reproduzierbare SSZ-Tests
-- Daten-Pipeline (CO/NH₃ Spektren)
-- T(r)/v(r) Fits
-- PV-Diagramme
-- Unsicherheitsbänder
+**Focus:**
+- Reproducible SSZ tests
+- Data pipeline (CO/NH₃ spectra)
+- T(r)/v(r) fits
+- PV diagrams
+- Uncertainty bands
 
 **Status:** Production-ready, complete workflow
 
 ---
 
-## 2. Das Objekt: G79.29+0.46
+## 2. The Object: G79.29+0.46
 
-### 2.1 Astrophysikalische Eigenschaften
+### 2.1 Astrophysical Properties
 
-**Klassifikation:** LBV (Luminous Blue Variable) Nebel in Cygnus X
+**Classification:** LBV (Luminous Blue Variable) nebula in Cygnus X
 
-**Parameter:**
-- **Distanz:** ~1.4 kpc
-- **Zentralstern:** Massereicher O/B-Stern
-- **Nebel-Ausdehnung:** ~1 pc
-- **Expansionsgeschwindigkeit:** ~20-30 km/s (klassisch)
-- **Temperatur:** 50-300 K (räumlich variierend)
+**Parameters:**
+- **Distance:** ~1.4 kpc
+- **Central star:** Massive O/B star
+- **Nebula extent:** ~1 pc
+- **Expansion velocity:** ~20-30 km/s (classical)
+- **Temperature:** 50-300 K (spatially varying)
 
-**Warum G79 wichtig?**
-- Gut-studiert (Rizzo+ 2014, Di Francesco+ 2015)
-- Hochauflösende CO/NH₃-Daten vorhanden
-- Klare Ring-Struktur (Diamond Ring!)
-- Messbare temporale Effekte
+**Why G79 is important:**
+- Well-studied (Rizzo+ 2014, Di Francesco+ 2015)
+- High-resolution CO/NH₃ data available
+- Clear ring structure (Diamond Ring!)
+- Measurable temporal effects
 
 ---
 
-### 2.2 Beobachtete Strukturen
+### 2.2 Observed Structures
 
 **The Diamond Ring:**
-- Zentrale Cavity (~0.3 pc)
-- Heller Ring bei ~0.5 pc
-- Äußere Hülle (~1 pc)
+- Central cavity (~0.3 pc)
+- Bright ring at ~0.5 pc
+- Outer shell (~1 pc)
 - Hot spots (200-300 K)
 
-**Molekulare Zonen:**
-- CO-Emission: Äußere Schichten
-- NH₃-Emission: Dichtere Regionen
-- [CII] Ringe: Ionisationsfronten
-- Temperatur-Gradienten messbar
+**Molecular Zones:**
+- CO emission: Outer layers
+- NH₃ emission: Denser regions
+- [CII] rings: Ionization fronts
+- Temperature gradients measurable
 
 ---
 
 ## 3. BREAKTHROUGH: Temporal Redshift Discovery (2025-11-06)
 
-### 3.1 Die Entdeckung
+### 3.1 The Discovery
 
-**Beobachtung:** Geschwindigkeitsstruktur an Domänen-Grenze (r ~ 0.5 pc)
+**Observation:** Velocity structure at domain boundary (r ~ 0.5 pc)
 
-**SSZ-Erklärung:**
+**SSZ Explanation:**
 ```
-z_temporal = 1 - γ_seg ≈ 0.12  (intrinsischer temporaler Shift)
-z_obs ≈ 1.7×10⁻⁵  (beobachteter Residual, Δv ≈ 5 km/s)
+z_temporal = 1 - γ_seg ≈ 0.12  (intrinsic temporal shift)
+z_obs ≈ 1.7×10⁻⁵  (observed residual, Δv ≈ 5 km/s)
 
-Physikalisch:
-- 86% des Effekts ist TEMPORAL (Metrik-Physik!)
-- 14% ist klassischer Doppler (Expansions-Kinematik)
+Physical:
+- 86% of the effect is TEMPORAL (metric physics!)
+- 14% is classical Doppler (expansion kinematics)
 ```
 
-**Das ist NICHT Newtonian mechanics - das ist General Relativity in Aktion!**
+**This is NOT Newtonian mechanics - this is General Relativity in action!**
 
 ---
 
@@ -85,53 +85,53 @@ Physikalisch:
 SSZ Prediction: Δv = 5.73 km/s  (temporal component)
 Observation:    Δv = 5.0 km/s   (Rizzo+ 2014, NH₃ spectroscopy)
 
-Übereinstimmung: 14% error ✅
+Agreement: 14% error ✅
 ```
 
-**Signifikanz:**
-- Erste direkte Messung eines temporalen metrischen Effekts!
-- Nicht nur theoretisch, sondern BEOBACHTET
-- Validiert SSZ-Framework in realer Astrophysik
+**Significance:**
+- First direct measurement of a temporal metric effect!
+- Not just theoretical, but OBSERVED
+- Validates SSZ framework in real astrophysics
 
 ---
 
-### 3.3 Mechanismus
+### 3.3 Mechanism
 
 **Temporal Compression/Expansion:**
 ```
-Innerhalb Segment g⁽²⁾: γ_seg < 1
-→ Zeit läuft SCHNELLER
+Inside segment g⁽²⁾: γ_seg < 1
+→ Time runs FASTER
 → Apparent cooling
-→ Geschwindigkeits-Blueshift
+→ Velocity blueshift
 
-An Grenze: Metrischer Übergang
-→ Abrupter Sprung
-→ Δv messbar
+At boundary: Metric transition
+→ Abrupt jump
+→ Δv measurable
 
-Außerhalb g⁽¹⁾: γ_seg = 1
-→ Klassische Zeit
-→ Normale Temperatur
+Outside g⁽¹⁾: γ_seg = 1
+→ Classical time
+→ Normal temperature
 ```
 
-**Observable:** Velocity discontinuity von ~5 km/s GENAU an vorhergesagter Position!
+**Observable:** Velocity discontinuity of ~5 km/s EXACTLY at predicted position!
 
 ---
 
 ## 4. Temperature Relations
 
-### 4.1 SSZ-Framework
+### 4.1 SSZ Framework
 
 **Complete Thermodynamic Framework:**
 ```
 T_obs(r) = γ_seg(r) × T_local
 
-Wo γ_seg(r) ist Segment-abhängiger Lorentz-Faktor
+Where γ_seg(r) is the segment-dependent Lorentz factor
 ```
 
-**Physikalisch:**
-- Temporal compression → scheinbare Temperaturänderung
-- NICHT thermisch (kein Energietransfer)
-- Metrischer Effekt!
+**Physical:**
+- Temporal compression → apparent temperature change
+- NOT thermal (no energy transfer)
+- Metric effect!
 
 ---
 
@@ -144,7 +144,7 @@ Wo γ_seg(r) ist Segment-abhängiger Lorentz-Faktor
 γ_seg < 1
 T_obs < T_local
 → Apparent cooling
-→ Beobachtet: 50-100 K
+→ Observed: 50-100 K
 ```
 
 **2. Boundary (r ~ 0.5 pc):** Transition
@@ -152,7 +152,7 @@ T_obs < T_local
 γ_seg transition
 ΔT ≈ 150 K (temperature jump!)
 → Hot ring structure
-→ Beobachtet: 200-300 K ✅
+→ Observed: 200-300 K ✅
 ```
 
 **3. Outer (r > 0.6 pc):** Classical regime
@@ -160,7 +160,7 @@ T_obs < T_local
 γ_seg = 1
 T_obs = T_local
 → Normal temperature
-→ Beobachtet: 100-150 K
+→ Observed: 100-150 K
 ```
 
 ---
@@ -172,7 +172,7 @@ T_obs = T_local
 - **Observed:** Spitzer/Herschel data ✅
 - **Status:** ALREADY CONFIRMED in existing data!
 
-**Bedeutung:** SSZ predicted structure that was ALREADY THERE in archival data - retroactive confirmation!
+**Significance:** SSZ predicted structure that was ALREADY THERE in archival data - retroactive confirmation!
 
 ---
 
@@ -184,7 +184,7 @@ T_obs = T_local
 g79-cygnus-tests/
 ├── tests/
 │   ├── velocity_validation.py      # v(r) fits
-│   ├── energy_release_model.py     # Energetik
+│   ├── energy_release_model.py     # Energetics
 │   ├── temperature_validation.py   # T(r) fits
 │   └── domain_classification.py    # g⁽¹⁾/g⁽²⁾ boundaries
 ├── data_pipeline/
@@ -617,7 +617,7 @@ pip install -r requirements.txt
 python data_pipeline/fetch_all_data.py
 ```
 
-**Zeit:** ~5 minutes (without data), ~30 minutes (with data download)
+**Time:** ~5 minutes (without data), ~30 minutes (with data download)
 
 ---
 
@@ -664,7 +664,7 @@ python analysis/uncertainty_bands.py \
 
 ### 12.1 Connection to SSZ Framework
 
-**This Repo validates SSZ in astrophysical context:**
+**This repo validates SSZ in astrophysical context:**
 - Unified Results: Theoretical framework + ESO validation
 - SSZ-Metric-Pure: Metric formulation
 - **G79 Tests (this):** Real-world astrophysical object
@@ -690,10 +690,10 @@ Confirmation (Hot ring, Δv) → Validation ✅
 
 ---
 
-## 13. Zusammenfassung: Warum G79 critical ist
+## 13. Summary: Why G79 is Critical
 
-1. **Real Astrophysical Test** - Nicht nur Theorie, echtes Objekt
-2. **Temporal Effects Measured** - z_temporal quantifiziert!
+1. **Real Astrophysical Test** - Not just theory, real object
+2. **Temporal Effects Measured** - z_temporal quantified!
 3. **Hot Ring Confirmed** - Already in archival data ✅
 4. **Velocity Discontinuity** - Δv = 5 km/s at predicted position
 5. **Reproducible Pipeline** - Complete workflow documented
@@ -701,9 +701,9 @@ Confirmation (Hot ring, Δv) → Validation ✅
 7. **Statistical Validation** - χ² fits, confidence intervals
 8. **Future Targets** - η Car, AG Car, P Cyg ready
 
-**G79 ist der PROOF that SSZ works in real astrophysics, nicht nur in black hole Gedankenexperimenten!**
+**G79 is the PROOF that SSZ works in real astrophysics, not just in black hole thought experiments!**
 
 ---
 
 **© 2025 Carmen Wrede & Lino Casu**  
-**Lizenz:** ANTI-CAPITALIST SOFTWARE LICENSE v1.4
+**License:** ANTI-CAPITALIST SOFTWARE LICENSE v1.4
