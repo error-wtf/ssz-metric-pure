@@ -220,11 +220,14 @@ Properties:
 - Ξ(r_s) = 1 - e^(-φ) = 0.802
 - At horizon: D(r_s) = 1/(1+0.802) = 0.555
 - Universal crossover at r* = 1.387 r_s
-
-Note: For r > 100r_s, use weak-field formula Ξ = r_s/(2r) → 0 as r → ∞
+- For r > 100r_s: use weak-field Ξ = r_s/(2r) → 0 as r → ∞
 ```
 
-**Important:** The two Ξ-formulations serve **different purposes**:
+**Matching Note:** 
+The exponential profile is a local strong-field model. The hard switch at r = 100r_s is **schematic only**; a proper implementation requires a smooth stitching function (e.g., quintic Hermite blend in [90, 110] r_s) for C²-continuity.
+
+**Important:** 
+The two Ξ-formulations serve **different purposes**:
 - **Hyperbolic** (∝ r_s/r): Ξ → ∞ as r → 0 (must be capped at Ξ_max)
 - **Exponential** (1 - e^{-φr/r_s}): Ξ → 0 as r → 0 (singularity-free by design)
 
@@ -762,15 +765,18 @@ Time continues! (slowed but finite)
 → Physical consistency
 ```
 
-**The φ-based Saturation:**
+**The φ-based Horizon Value:**
 ```
-Why Ξ_max ≈ 0.8 and not 1.0?
+Why Ξ(r_s) = 0.802?
 
-Ξ_max = 1 - exp(-φ) = 1 - 1/e^φ ≈ 0.802
+Ξ(r_s) = 1 - exp(-φ) = 1 - 1/e^φ ≈ 0.802
 
 This is NOT arbitrary! It emerges from φ-geometry.
-The golden ratio naturally limits segment saturation.
 ```
+
+**Clarification:** In the exponential formulation, **0.802 is Ξ(r_s)** (the value at 
+the horizon), **not Ξ_max**. We use Ξ_max = 1 implicitly, giving Ξ(r_s) = 0.802 × 1 = 0.802.
+The value 0.802 is a φ-linked horizon calibration, not the saturation limit.
 
 ### 11.5 Proper Time vs. Coordinate Time
 
