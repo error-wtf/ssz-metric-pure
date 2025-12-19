@@ -211,23 +211,25 @@ Properties:
 - At horizon: D(r_s) = 2/(2+α) ≈ 0.667 (α=1)
 ```
 
-**Exponential (saturation form):**
+**Exponential (saturation form, strong-field r < 100r_s only):**
 ```
-Ξ(r) = Ξ_max(1 - e^(-φr/r_s))
+Ξ(r) = 1 - e^(-φr/r_s)     [Ξ_max = 1 implicit]
 
 Properties:
-- Ξ(0) = 0, Ξ(∞) → Ξ_max (saturation)
-- Universal crossover at r* = 1.387 r_s
-- Mass-independent!
+- Ξ(0) = 0 (singularity-free!)
+- Ξ(r_s) = 1 - e^(-φ) = 0.802
 - At horizon: D(r_s) = 1/(1+0.802) = 0.555
+- Universal crossover at r* = 1.387 r_s
+
+Note: For r > 100r_s, use weak-field formula Ξ = r_s/(2r) → 0 as r → ∞
 ```
 
-**Important:** The two Ξ-formulations have **different radial behavior**:
-- Hyperbolic: Ξ increases toward center (∝ r_s/r)
-- Exponential: Ξ increases outward but **saturates** (prevents divergence)
+**Important:** The two Ξ-formulations serve **different purposes**:
+- **Hyperbolic** (∝ r_s/r): Ξ → ∞ as r → 0 (must be capped at Ξ_max)
+- **Exponential** (1 - e^{-φr/r_s}): Ξ → 0 as r → 0 (singularity-free by design)
 
-The exponential form is designed for **singularity avoidance** (Ξ→0 as r→0), 
-while the hyperbolic form follows the weak-field intuition (more segments near mass).
+Both give **finite D(r_s)** at the horizon. The exponential form is preferred for 
+strong-field calculations because it naturally avoids the r=0 divergence.
 
 **Note:** The horizon value (0.555 vs 0.667) depends on which formulation is used.
 
@@ -442,15 +444,24 @@ Stable orbits closer to horizon possible
 
 ## 7. Neutron Star Physics - Smoking Gun
 
-### 7.1 The 44% prediction
+### 7.1 The 44% prediction (exponential Ξ-model)
 
-**SSZ predicts:**
+**SSZ predicts (using exponential strong-field formula):**
 ```
-At r = 5r_s:
-Δ = (D_SSZ - D_GR)/D_GR × 100% = -44%
+At r = 5r_s (typical NS surface):
+
+Ξ(5r_s) = 1 - e^(-φ×5) = 1 - e^(-8.09) ≈ 0.9997
+D_SSZ = 1/(1 + 0.9997) ≈ 0.500
+
+D_GR = √(1 - r_s/5r_s) = √0.8 = 0.894
+
+Δ = (D_SSZ - D_GR)/D_GR × 100% = (0.500 - 0.894)/0.894 = -44%
 
 SSZ: Time runs SLOWER than GR predicts!
 ```
+
+**Note:** This prediction is model-dependent. The -44% assumes the exponential 
+Ξ-profile with Ξ_max = 1. Different Ξ-profiles yield different predictions.
 
 **Physically:**
 - More segment density at NS
@@ -690,24 +701,31 @@ Time interval between "ticks":
 - Like a clock counting pendulum swings
 - High Ξ → fewer ticks per coordinate time → slower time
 
-**Asymptotic Behavior:**
+**Asymptotic Behavior (using weak-field Ξ → 0 as r → ∞):**
 ```
-ω(∞) = φ = 1.618...  (maximum frequency in flat space)
-ω(r_s) = φ/1.802 = 0.898  (minimum at horizon)
+ω(r) = ω₀ · φ / (1 + Ξ(r))
+
+ω(∞) = ω₀ · φ / (1 + 0) = ω₀ · φ  (flat space, Ξ → 0)
+ω(r_s) = ω₀ · φ / 1.802 ≈ 0.898 · ω₀  (at horizon, Ξ = 0.802)
 ```
 
-### 11.3 The -44% Neutron Star Prediction
+**Note:** ω₀ is a reference frequency. The ratio ω(r_s)/ω(∞) = 1/1.802 ≈ 0.555 = D_SSZ(r_s).
 
-**The Smoking Gun for SSZ:**
+### 11.3 The -44% Neutron Star Prediction (Model-Dependent)
+
+**Calculation with exponential Ξ-profile (Ξ_max = 1):**
 ```
 At r = 5r_s (typical neutron star surface):
 
-D_GR = √(1 - 0.2) = 0.894
-D_SSZ = 1/(1 + Ξ(5r_s)) ≈ 0.500
+Ξ(5r_s) = 1 - e^(-φ×5) = 1 - e^(-8.09) ≈ 0.9997
 
-Relative Difference:
+D_GR = √(1 - 0.2) = 0.894
+D_SSZ = 1/(1 + 0.9997) ≈ 0.500
+
 Δ = (D_SSZ - D_GR)/D_GR × 100% = -44%
 ```
+
+**Important:** This value depends on the chosen Ξ-profile and parameters.
 
 **Observable Consequences:**
 1. **Pulsar Periods:** Appear 14% longer than GR predicts

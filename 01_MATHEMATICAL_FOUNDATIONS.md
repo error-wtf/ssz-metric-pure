@@ -89,15 +89,16 @@ U = GM/(rc²)
 - No crossover at α=1.0
 - SSZ corrections at ALL radii
 
-### 3.2 Exponential Form (universal)
+### 3.2 Exponential Form (strong-field, r < 100r_s)
 ```
-Ξ(r) = Ξ_max(1 - e^(-φr/r_s))
+Ξ(r) = 1 - e^(-φr/r_s)     [Ξ_max = 1 explicit]
 ```
 
 **Properties:**
+- Ξ(0) = 0 (singularity-free!)
+- Ξ(r_s) = 1 - e^(-φ) = 0.802
 - **Universal crossover at r* = 1.386562 r_s**
-- Mass-independent!
-- φ-based natural scale
+- For r > 100r_s: use weak-field Ξ = r_s/(2r) → 0 as r → ∞ (asymptotic behavior)
 
 ---
 
