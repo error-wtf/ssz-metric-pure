@@ -251,7 +251,7 @@ NEC (Null Energy):     ρ + p_r = 0 (analytical!)
 **Properties:**
 - **Mass-independent!** Valid for NS AND SMBH
 - **Universal point:** D_GR(r*) = D_SSZ(r*) = 0.528007
-- **φ-linked:** Ξ(r) = Ξ_max(1 - e^(-φr/r_s))
+- **φ-linked:** Ξ(r) = Ξ_max(1 - e^(-φr_s / r))
 
 **Validation:**
 ```

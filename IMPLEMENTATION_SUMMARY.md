@@ -55,7 +55,7 @@ ssz-metric-pure/
 
 ### Segmentation (`segmentation.py`)
 - ✅ Ξ(r) = (r_s/r)² × exp(-r/r_φ) - segment density
-- ✅ N(r) = N_max × (1 - exp(-φr/r_s)) - saturation form
+- ✅ N(r) = N_max × (1 - exp(-φr_s / r)) - saturation form
 - ✅ D_SSZ(r) = 1/(1+N(r)) - time dilation
 - ✅ Monotonic redshift validation
 - ✅ Smooth saturation (tanh)

@@ -91,7 +91,7 @@ U = GM/(rc²)
 
 ### 3.2 Exponential Form (strong-field, r < 100r_s)
 ```
-Ξ(r) = 1 - e^(-φr/r_s)     [Ξ_max = 1 explicit]
+Ξ(r) = 1 - e^(-φr_s / r)     [Ξ_max = 1 explicit]
 ```
 
 **Properties:**

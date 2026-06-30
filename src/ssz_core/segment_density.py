@@ -52,7 +52,7 @@ def Xi(r: Union[float, np.ndarray], r_s: float) -> Union[float, np.ndarray]:
     r = np.asarray(r)
     
     # Ξ(r) = 1 - exp(-φ · r/r_s)
-    xi_value = 1.0 - np.exp(-PHI * r / r_s)
+    xi_value = 1.0 - np.exp(-PHI * r_s / r)
     
     return float(xi_value) if xi_value.ndim == 0 else xi_value
 
@@ -239,6 +239,6 @@ def segment_saturation_derivative(
     r = np.asarray(r)
     
     # dΞ/dr = (φ/r_s) · exp(-φ · r/r_s)
-    dxi_dr = (PHI / r_s) * np.exp(-PHI * r / r_s)
+    dxi_dr = (PHI / r_s) * np.exp(-PHI * r_s / r)
     
     return float(dxi_dr) if dxi_dr.ndim == 0 else dxi_dr

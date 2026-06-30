@@ -63,7 +63,7 @@ A_Ξ(r) = D_SSZ(r)² = (1 + Ξ(r))^(-2)
 
 **Derivative:**
 ```
-dA_Ξ/dr = -2φ/r_s · exp(-φ r/r_s) / (1 + Ξ(r))³
+dA_Ξ/dr = -2φ/r_s · exp(-φ r_s / r) / (1 + Ξ(r))³
 ```
 
 ### 2.3 GR Time Dilation (Comparison)
@@ -280,7 +280,7 @@ K_SSZ(0) finite
 ### 10.1 Segment Saturation Derivative
 
 ```
-dΞ/dr = (φ/r_s) · exp(-φ r/r_s)
+dΞ/dr = (φ/r_s) · exp(-φ r_s / r)
 ```
 
 ### 10.2 Metric Coefficient Derivative
@@ -338,7 +338,7 @@ SSZ: Finite and well-defined
 ```python
 # Segment saturation
 def Xi(r, r_s):
-    return 1 - np.exp(-PHI * r / r_s)
+    return 1 - np.exp(-PHI * r_s / r)
 
 # SSZ time dilation
 def D_SSZ(r, r_s):
