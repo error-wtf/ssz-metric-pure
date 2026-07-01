@@ -36,7 +36,7 @@ def segment_density_xi(
     ⚠️ DEPRECATED: This formula is NOT canonical.
     
     The canonical formula is:
-        Ξ(r) = 1 - exp(-φ·r/r_s)    [Strong Field]
+        Ξ(r) = 1 - exp(-φ·r_s / r)    [Strong Field]
         Ξ(r) = r_s/(2r)              [Weak Field]
     
     This function uses an alternative formula:
@@ -49,7 +49,7 @@ def segment_density_xi(
     backward compatibility with existing code that depends on this behavior.
     
     For new code, use the canonical formulas from ssz-qubits or maxwell
-    repositories which use: Ξ(r) = 1 - exp(-φ·r/r_s)
+    repositories which use: Ξ(r) = 1 - exp(-φ·r_s / r)
     
     Physical Meaning:
     - Ξ(r) represents spacetime discretization level (alternative interpretation)
@@ -75,7 +75,7 @@ def segment_density_xi(
     import warnings
     warnings.warn(
         "segment_density_xi() uses DEPRECATED formula. "
-        "Use canonical formula: Ξ(r) = 1 - exp(-φ·r/r_s) for Strong Field "
+        "Use canonical formula: Ξ(r) = 1 - exp(-φ·r_s / r) for Strong Field "
         "or Ξ(r) = r_s/(2r) for Weak Field. "
         "See maxwell/OPEN_ISSUES.md ISS-01 and todo/RESOLUTION_ROADMAP.md",
         DeprecationWarning,
@@ -109,12 +109,12 @@ def segment_density_N(
     N_max: float = XI_MAX
 ) -> ArrayLike:
     """
-    Alternative notation: N(r) = N_max × (1 - exp(-φ·r/r_s))
+    Alternative notation: N(r) = N_max × (1 - exp(-φ·r_s / r))
     
     This is the SATURATION form used in ssz-full-metric.
     
     Formula:
-        N(r) = N_max × (1 - exp(-φ × r/r_s))
+        N(r) = N_max × (1 - exp(-φ × r_s / r))
     
     Properties:
     - N(0) = 0 (no segments at center)

@@ -26,7 +26,7 @@ Spacetime is **not** a continuous manifold, but consists of **discrete segments*
 Segments fill spacetime according to the **Golden Ratio** φ = (1+√5)/2:
 
 ```
-Ξ(r) = 1 - exp(-φ · r/r_s)
+Ξ(r) = 1 - exp(-φ · r_s / r)
 ```
 
 where:

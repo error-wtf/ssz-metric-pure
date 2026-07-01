@@ -90,7 +90,7 @@ class StaticSSZMetric:
         Pure SSZ Formula (CORRECTED - saturation based):
             A(r) = [1 / (1 + N(r))]²
         
-        where N(r) = N_max × (1 - exp(-φ × r/r_s))
+        where N(r) = N_max × (1 - exp(-φ × r_s / r))
         
         Properties:
         - A(0) = 1.0 (flat spacetime at center!) ✓

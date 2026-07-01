@@ -1013,7 +1013,7 @@ Future: More sensitive to SSZ effects
 
 ```
 φ appears in:
-├── Segment density: Ξ(r) = 1 - exp(-φ·r/r_s)
+├── Segment density: Ξ(r) = 1 - exp(-φ·r_s / r)
 ├── Time emergence: Δt = (1+Ξ)/φ
 ├── Universal crossover: r* ≈ 1.387 r_s (φ-linked)
 ├── Horizon calibration: Ξ(r_s) = 1 - exp(-φ) ≈ 0.802

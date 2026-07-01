@@ -5,7 +5,7 @@ Implements the SSZ segment saturation based on the Golden Ratio (φ),
 providing singularity-free time dilation.
 
 Mathematical Foundation:
-- Segment saturation: Ξ(r) = 1 - exp(-φ · r/r_s)
+- Segment saturation: Ξ(r) = 1 - exp(-φ · r_s / r)
 - SSZ time dilation: D_SSZ(r) = 1 / (1 + Ξ(r))
 - GR time dilation: D_GR(r) = √(1 - r_s/r)
 
@@ -25,7 +25,7 @@ def Xi(r: Union[float, np.ndarray], r_s: float) -> Union[float, np.ndarray]:
     Calculate segment saturation factor using Golden Ratio.
     
     Formula:
-        Ξ(r) = 1 - exp(-φ · r/r_s)
+        Ξ(r) = 1 - exp(-φ · r_s / r)
     
     where φ = (1 + √5)/2 ≈ 1.618 is the golden ratio.
     
@@ -51,7 +51,7 @@ def Xi(r: Union[float, np.ndarray], r_s: float) -> Union[float, np.ndarray]:
     # Handle both scalar and array inputs
     r = np.asarray(r)
     
-    # Ξ(r) = 1 - exp(-φ · r/r_s)
+    # Ξ(r) = 1 - exp(-φ · r_s / r)
     xi_value = 1.0 - np.exp(-PHI * r_s / r)
     
     return float(xi_value) if xi_value.ndim == 0 else xi_value
@@ -222,7 +222,7 @@ def segment_saturation_derivative(
     Calculate derivative of segment saturation factor.
     
     Formula:
-        dΞ/dr = (φ/r_s) · exp(-φ · r/r_s)
+        dΞ/dr = (φ/r_s) · exp(-φ · r_s / r)
     
     Used for curvature calculations and metric derivatives.
     
@@ -238,7 +238,7 @@ def segment_saturation_derivative(
     
     r = np.asarray(r)
     
-    # dΞ/dr = (φ/r_s) · exp(-φ · r/r_s)
+    # dΞ/dr = (φ/r_s) · exp(-φ · r_s / r)
     dxi_dr = (PHI / r_s) * np.exp(-PHI * r_s / r)
     
     return float(dxi_dr) if dxi_dr.ndim == 0 else dxi_dr
