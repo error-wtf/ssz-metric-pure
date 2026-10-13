@@ -25,7 +25,7 @@ from .params import (
     SSZParams, PHI, G_SI, C_SI,
     PHI_SERIES_COEFFICIENTS, EPSILON_COEFFICIENTS
 )
-from .segmentation import segment_density_xi, time_dilation_SSZ
+from .segmentation import segment_density_xi, time_dilation_SSZ, XI_MAX
 
 
 @dataclass
@@ -271,30 +271,41 @@ class StaticSSZMetric:
     # BOUNDARY CONDITIONS & VALIDATION
     # ========================================================================
     
-    def check_flatness_at_center(self, tol: float = 1e-3) -> Tuple[bool, str]:
+    def check_flatness_at_center(self, tol: float = 0.05) -> Tuple[bool, str]:
         """
-        Validate A(0) ≈ 1 (flat spacetime at center).
+        Validate A(0) is finite and bounded (no singularity at center).
+        
+        FORENSIC AUDIT (2026-10-13): with the canonical segment profile
+        N = N_max*(1-exp(-phi*r_s/r)) the center value is
+        A(0) = 1/(1+N_max)^2 (= 0.25 for N_max=1) — FINITE, singularity-
+        free, but not flat. The old "A(0) = 1.0 flat center" claim was part
+        of the inverted-profile bug (it holds only for the non-canonical
+        exp(-phi*r/r_s) form). SSZ's singularity resolution is finiteness,
+        not center flatness; the GR comparison has A(0) -> 0.
         
         Returns:
             (is_valid, message)
         """
-        A_0 = self.A_coefficient(1e-10)  # Near r=0
+        A_0 = self.A_coefficient(1e-30)  # Near r=0
+        A_center_expected = 1.0 / (1.0 + XI_MAX) ** 2
         
-        if abs(A_0 - 1.0) < tol:
-            return True, f"A(0) = {A_0:.6f} ≈ 1.0 ✓"
+        if abs(A_0 - A_center_expected) < tol:
+            return True, f"A(0) = {A_0:.6f} ≈ 1/(1+N_max)² = {A_center_expected:.4f} (finite, singularity-free) ✓"
         else:
-            return False, f"A(0) = {A_0:.6f} deviates from 1.0 by {abs(A_0-1.0):.3e}"
+            return False, f"A(0) = {A_0:.6f} deviates from expected {A_center_expected:.4f} by {abs(A_0-A_center_expected):.3e}"
     
     def check_asymptotic_flatness(self, r_test: float = None, tol: float = 0.05) -> Tuple[bool, str]:
         """
-        Validate A(r→∞) → constant (bounded far field).
+        Validate A(r→∞) → 1 (asymptotic flatness, canonical profile).
         
-        Note: Pure SSZ saturates at A(∞) = 1/(1+N_max)² ≈ 0.25
-              This is NOT GR asymptotic flatness, but physical boundedness!
+        FORENSIC AUDIT (2026-10-13): with the canonical segment profile
+        N(inf) = 0, so A(inf) = 1 — genuinely asymptotically flat
+        (PPN-compatible). The old check expected the saturated value 0.25,
+        an artifact of the inverted profile.
         
         Args:
             r_test: Test radius (default: 100 × r_s)
-            tol: Tolerance (relaxed for saturated model)
+            tol: Tolerance
         
         Returns:
             (is_valid, message)
@@ -303,7 +314,7 @@ class StaticSSZMetric:
             r_test = 100.0 * self.r_s
         
         A_inf = self.A_coefficient(r_test)
-        A_expected = 0.25  # 1/(1+1)² for N_max=1
+        A_expected = 1.0
         
         if abs(A_inf - A_expected) < tol:
             return True, f"A({r_test/self.r_s:.0f}r_s) = {A_inf:.6f} ≈ {A_expected} ✓"

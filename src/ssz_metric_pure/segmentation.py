@@ -141,8 +141,18 @@ def segment_density_N(
     r = np.asarray(r, dtype=float)
     r_safe = np.maximum(r, 0.0)
     
-    # Saturation formula
-    exponent = -varphi * r_safe / r_s
+    # FORENSIC AUDIT FIX (2026-10-13): The implementation previously used
+    #   exponent = -varphi * r_safe / r_s   (i.e. 1 - exp(-phi * r/r_s))
+    # which INVERTS the radial profile: N(0) = 0 (flat center) and
+    # N(inf) = N_max (saturated infinity) — producing A(inf) = 1/(1+N_max)^2
+    # = 0.25 (XI_MAX=1) instead of the canonical asymptotically flat
+    # A(inf) = 1. The documented intent (this docstring, both here and in
+    # the SSZ convention matrix K2/Omega-2 profile used by
+    # SSZ-METRIC_COMPLETE) is the canonical SSZ profile
+    #   N(r) = N_max * (1 - exp(-phi * r_s / r))
+    # with N(0+) = N_max, N(inf) = 0, matching segment_density_xi's
+    # canonical reference in this same module.
+    exponent = -varphi * r_s / np.maximum(r_safe, 1e-30)
     # Clip to avoid overflow
     exponent = np.clip(exponent, -100.0, 100.0)
     

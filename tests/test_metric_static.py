@@ -42,23 +42,36 @@ def test_A_positive_everywhere(solar_mass_metric):
 
 
 def test_flatness_at_center(solar_mass_metric):
-    """A(0) ≈ 1.0 - flat spacetime at center."""
-    A_center = solar_mass_metric.A_coefficient(1e-10)
+    """A(0) finite, singularity-free (canonical SSZ profile).
     
-    assert abs(A_center - 1.0) < 0.1, f"A(0) = {A_center:.3f} not flat"
+    FORENSIC AUDIT (2026-10-13): canonical N = N_max*(1-exp(-phi*r_s/r))
+    gives A(0) = 1/(1+N_max)^2 = 0.25 for N_max=1 — finite, not flat.
+    SSZ's singularity resolution is finiteness (GR: A(0) -> 0).
+    """
+    A_center = solar_mass_metric.A_coefficient(1e-30)
+    
+    assert abs(A_center - 0.25) < 0.05, f"A(0) = {A_center:.3f} not finite/bounded as expected"
 
 
 def test_asymptotic_flatness(solar_mass_metric):
-    """A(r→∞) → constant - bounded far field.
+    """A(r→∞) → 1.0 - asymptotically flat (canonical SSZ profile).
     
-    Note: Pure SSZ saturates at A(∞) = 1/(1+N_max)² = 0.25
-    This is NOT asymptotically flat in GR sense, but physically bounded!
+    FORENSIC AUDIT (2026-10-13): the old assertion baked in the inverted
+    segment-density profile (N = N_max*(1-exp(-phi*r/r_s)), saturated
+    infinity) which forced A(inf) = 1/(1+N_max)^2 = 0.25. The canonical
+    SSZ profile (N = N_max*(1-exp(-phi*r_s/r)), same as segment_density_xi's
+    documented canonical formula in this repo) gives N(inf)=0 and hence
+    A(inf) -> 1: asymptotically flat, PPN-compatible.
     """
     r_far = 100.0 * solar_mass_metric.r_s
     A_far = solar_mass_metric.A_coefficient(r_far)
     
-    # Check bounded (not flat!)
-    assert 0.2 < A_far < 0.3, f"A(∞) = {A_far:.3f} outside expected range"
+    # At 100 r_s: Xi ~ phi/200 ~ 0.008, so A = 1/(1+Xi)^2 ~ 0.9687
+    # (verified numerically). Convergence A -> 1 with 1/r rate.
+    A_far_exact = 0.9687
+    assert abs(A_far - A_far_exact) < 0.01, f"A(100 r_s) = {A_far:.4f}, expected ~{A_far_exact}"
+    A_farther = solar_mass_metric.A_coefficient(1000.0 * solar_mass_metric.r_s)
+    assert A_farther > A_far, "A must increase toward 1 (convergence check)"
 
 
 def test_B_equals_1_over_A(solar_mass_metric):
